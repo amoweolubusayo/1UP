@@ -1,4 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
+// const colors = require("tailwindcss/colors");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -9,6 +10,10 @@ module.exports = {
       fontFamily: {
         serif: ["Space Grotesk", ...defaultTheme.fontFamily.serif],
       },
+      // colors: {
+      //   // blue: colors.blue,
+      //   // cyan: colors.cyan,
+      // },
     },
   },
   variants: {},

@@ -84,84 +84,70 @@ const Feature = () => {
       link: "/",
     },
   ];
-  const transferFeatures = [
-    {
-      id: 1,
-      name: "Competitive exchange rates",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    },
-    {
-      id: 2,
-      name: "No hidden fees",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    },
-    {
-      id: 3,
-      name: "Transfers are instant",
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    },
-  ];
+
   return (
-    <section className="section" id="feature">
-      <Container>
-        <Row className="justify-content-center">
-          <Col lg={6} md={8}>
-            <div className="title text-center mb-5">
-              <h3 className="font-weight-normal text-dark">
-                <p className="text-primary font-bold text-2xl">Features</p>
-              </h3>
-              <br />
-              <p className="text-muted text-lg">
+    <Container>
+      <Row className="justify-content-center">
+        <div className="relative bg-gray-0 pt-16 sm:pt-24 lg:pt-32">
+          <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
+            <div>
+              <h2 className="font-semibold tracking-wider text-600 uppercase">
+                Features
+              </h2>
+              <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
                 As a Student, on Primero you can buy a course as an NFT, finish
                 the course at your own pace, and get an NFT certificate
                 afterwards! You can also list and sell your course as an NFT
-                with a first timer purchase advantage!{" "}
+                with a first timer purchase advantage!
               </p>
-              <br />
-              <p className="text-muted text-lg">
-                {" "}
+              <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
                 As an Instructor, Primero offers you the first web3 platform to
                 upload your courses, monitor your student progress, and earn new
                 revenue streams in crypto for the content you created.
               </p>
             </div>
-            {/* <div className="py-16 bg-gray-50 overflow-hidden lg:py-24">
-              <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-1 lg:gap-5 lg:items-center">
-                <div className="relative">
-                  <h3 className="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
-                    Transfer funds world-wide
-                  </h3>
-                  <p className="mt-3 text-lg text-gray-500">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Pariatur minima sequi recusandae, porro maiores officia
-                    assumenda aliquam laborum ab aliquid veritatis impedit odit
-                    adipisci optio iste blanditiis facere. Totam, velit.
-                  </p>
-
-                  <dl className="mt-10 space-y-10">
-                    <div className="relative">
-                      <dt>
-                        <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"></div>
-                        <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
-                          hey
-                        </p>
-                      </dt>
-                      <dd className="mt-2 ml-16 text-base text-gray-500">
-                        nate
-                      </dd>
-                    </div>
-                  </dl>
+          </div>
+        </div>
+        {/* <div className="pb-16 bg-gradient-to-r lg:pb-0 lg:z-10 lg:relative">
+          <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-8">
+            <div className="relative lg:-my-8">
+              <div
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
+              />
+              <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
+                <div className="sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
+                  <img
+                    className="w-full h-full object-cover"
+                    src="https://media.istockphoto.com/photos/illustration-of-business-team-office-working-happy-multicultural-picture-id1316482152?b=1&k=20&m=1316482152&s=170667a&w=0&h=2sN3XUoHbsVOmc3N6gVzgpyiHcX_cCbZaAy0EK1lIpI="
+                    alt=""
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="inset-0 from-teal-500 to-cyan-600"
+                  />
                 </div>
               </div>
-            </div> */}
-          </Col>
-        </Row>
-        <FeatureBox features={features} />
-      </Container>
-    </section>
+            </div>
+            <div className="mt-12 lg:m-0 lg:col-span-2 lg:pl-8">
+              <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:px-0 lg:py-20 lg:max-w-none">
+                <div>
+                  <p className="mt-6 text-2xl font-medium text-black">
+                    Transform your life through decentralized education
+                  </p>
+                  <p className="text-base text-black">
+                    Learners around the world are launching new careers,
+                    advancing in their fields, and enriching their lives.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> */}
+      </Row>
+      <br />
+      <FeatureBox features={features} />
+    </Container>
   );
 };
 export default Feature;

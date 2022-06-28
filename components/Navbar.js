@@ -118,25 +118,25 @@ export default function Navbar() {
             <div class="hidden md:flex items-center space-x-1">
               <a
                 href=""
-                class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold "
+                class="py-4 px-2 text-500 border-b-4 border-500 font-semibold "
               >
                 Home
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 Services
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 About
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 Contact Us
               </a>
@@ -146,13 +146,13 @@ export default function Navbar() {
           <div class="hidden md:flex items-center space-x-3 ">
             <a
               href=""
-              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300"
+              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-500 hover:text-black transition duration-300"
             >
               Log In
             </a>
             <a
               href=""
-              class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
+              class="py-2 px-2 font-medium text-black bg-black-500 rounded hover:bg-black-400 transition duration-300"
             >
               Sign Up
             </a>
@@ -161,7 +161,7 @@ export default function Navbar() {
           <div class="md:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
-                class=" w-6 h-6 text-gray-500 hover:text-blue-500 "
+                class=" w-6 h-6 text-gray-500 hover:text-500 "
                 x-show="!showMenu"
                 fill="none"
                 stroke-linecap="round"
@@ -182,7 +182,7 @@ export default function Navbar() {
           <li class="active">
             <a
               href="index.html"
-              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
+              class="block text-sm px-2 py-4 text-white bg-500 font-semibold"
             >
               Home
             </a>
@@ -190,7 +190,7 @@ export default function Navbar() {
           <li>
             <a
               href="#services"
-              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               Services
             </a>
@@ -198,7 +198,7 @@ export default function Navbar() {
           <li>
             <a
               href="#about"
-              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               About
             </a>
@@ -206,7 +206,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               Contact Us
             </a>
