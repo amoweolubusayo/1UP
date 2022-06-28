@@ -6,7 +6,6 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { useAccount, useDisconnect } from "wagmi";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -107,66 +106,62 @@ export default function Navbar() {
     //     </div>
     //   </div>
     // </nav>
-    <nav class="bg-white shadow-lg">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex justify-between">
-          <div class="flex space-x-7">
+    <nav className="bg-white shadow-lg">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex justify-between">
+          <div className="flex space-x-7">
             <div>
-              <a href="#" class="flex items-center py-4 px-2"></a>
+              <a href="#" className="flex items-center py-4 px-2"></a>
             </div>
 
-            <div class="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center space-x-1">
               <a
                 href=""
-                class="py-4 px-2 text-500 border-b-4 border-500 font-semibold "
+                className="py-4 px-2 text-500 border-b-4 border-500 font-semibold "
               >
                 Home
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 Services
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 About
               </a>
               <a
                 href=""
-                class="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
+                className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
               >
                 Contact Us
               </a>
             </div>
           </div>
 
-          <div class="hidden md:flex items-center space-x-3 ">
+          <div className="hidden md:flex items-center space-x-3 ">
             <a
               href=""
-              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-500 hover:text-black transition duration-300"
+              className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-500 hover:text-black transition duration-300"
             >
               Log In
             </a>
-            <a
-              href=""
-              class="py-2 px-2 font-medium text-black bg-black-500 rounded hover:bg-black-400 transition duration-300"
-            >
-              Sign Up
-            </a>
+            <Link href="/defaultsignup">
+              <a className="py-2 px-2 font-medium text-black bg-black-500 rounded hover:bg-black-400 transition duration-300">
+                Sign Up
+              </a>
+            </Link>
           </div>
 
-          <div class="md:hidden flex items-center">
-            <button class="outline-none mobile-menu-button">
+          <div className="md:hidden flex items-center">
+            <button className="outline-none mobile-menu-button">
               <svg
-                class=" w-6 h-6 text-gray-500 hover:text-500 "
+                className=" w-6 h-6 text-gray-500 hover:text-500 "
                 x-show="!showMenu"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
@@ -177,12 +172,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div class="hidden mobile-menu">
-        <ul class="">
-          <li class="active">
+      <div className="hidden mobile-menu">
+        <ul className="">
+          <li className="active">
             <a
               href="index.html"
-              class="block text-sm px-2 py-4 text-white bg-500 font-semibold"
+              className="block text-sm px-2 py-4 text-white bg-500 font-semibold"
             >
               Home
             </a>
@@ -190,7 +185,7 @@ export default function Navbar() {
           <li>
             <a
               href="#services"
-              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
+              className="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               Services
             </a>
@@ -198,7 +193,7 @@ export default function Navbar() {
           <li>
             <a
               href="#about"
-              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
+              className="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               About
             </a>
@@ -206,7 +201,7 @@ export default function Navbar() {
           <li>
             <a
               href="#contact"
-              class="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
+              className="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
             >
               Contact Us
             </a>

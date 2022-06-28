@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Features from "./Features";
+import Contact from "./Contact";
 import Footer from "./Footer";
 
 const Layout = (props) => {
@@ -11,7 +12,7 @@ const Layout = (props) => {
       <Navbar />
       <Hero />
       <Features />
-      {/* <div>{props.children}</div> */}
+      <Contact />
       {/* <Footer /> */}
     </div>
   );

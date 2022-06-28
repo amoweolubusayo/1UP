@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 // import "../styles/Header.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { useState } from "react";
