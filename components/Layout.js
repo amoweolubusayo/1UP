@@ -13,7 +13,7 @@ const Layout = (props) => {
       <Hero />
       <Features />
       <Contact />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
