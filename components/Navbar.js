@@ -1,7 +1,33 @@
 import { useState } from "react";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+// import { SearchIcon } from "@heroicons/react/solid";
+// import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAccount, useDisconnect } from "wagmi";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
+
+const user = {
+  name: "Tom Cook",
+  email: "tom@example.com",
+  imageUrl:
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+};
+const navigation = [
+  { name: "Dashboard", href: "#", current: true },
+  { name: "Team", href: "#", current: false },
+  { name: "Projects", href: "#", current: false },
+  { name: "Calendar", href: "#", current: false },
+];
+const userNavigation = [
+  { name: "Your Profile", href: "#" },
+  { name: "Settings", href: "#" },
+  { name: "Sign out", href: "#" },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 export default function Navbar() {
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -81,64 +107,123 @@ export default function Navbar() {
     //     </div>
     //   </div>
     // </nav>
-    <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-      <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <svg
-          className="fill-current h-8 w-8 mr-2"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-        </svg>
-        <span className="font-semibold text-xl tracking-tight">
-          Tailwind CSS
-        </span>
-      </div>
-      <div className="block lg:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
-      <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-        <div className="text-sm lg:flex-grow">
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-          >
-            Docs
-          </a>
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
-          >
-            Examples
-          </a>
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-          >
-            Blog
-          </a>
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <div>
+              <a href="#" class="flex items-center py-4 px-2"></a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-1">
+              <a
+                href=""
+                class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold "
+              >
+                Home
+              </a>
+              <a
+                href=""
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+              >
+                Services
+              </a>
+              <a
+                href=""
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+              >
+                About
+              </a>
+              <a
+                href=""
+                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-3 ">
+            <a
+              href=""
+              class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300"
+            >
+              Log In
+            </a>
+            <a
+              href=""
+              class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-400 transition duration-300"
+            >
+              Sign Up
+            </a>
+          </div>
+
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg
+                class=" w-6 h-6 text-gray-500 hover:text-blue-500 "
+                x-show="!showMenu"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div>
-          <a
-            href="#"
-            className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-          >
-            Download
-          </a>
-        </div>
       </div>
+
+      <div class="hidden mobile-menu">
+        <ul class="">
+          <li class="active">
+            <a
+              href="index.html"
+              class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="block text-sm px-2 py-4 hover:bg-blue-500 transition duration-300"
+            >
+              Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+      {/* <script>
+        const btn = document.querySelector("button.mobile-menu-button"); const
+        menu = document.querySelector(".mobile-menu");
+        btn.addEventListener("click", () => {
+					menu.classList.toggle("hidden");
+				});
+      </script> */}
     </nav>
-    // )
   );
+}
+{
+  /* );
+} */
 }

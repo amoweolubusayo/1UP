@@ -8,7 +8,7 @@ import Footer from "./Footer";
 const Layout = (props) => {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Hero />
       <Features />
       {/* <div>{props.children}</div> */}

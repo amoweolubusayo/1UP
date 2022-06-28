@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/Header.css";
+// import "../styles/Header.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import { useState } from "react";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";

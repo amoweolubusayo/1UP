@@ -84,6 +84,26 @@ const Feature = () => {
       link: "/",
     },
   ];
+  const transferFeatures = [
+    {
+      id: 1,
+      name: "Competitive exchange rates",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+    },
+    {
+      id: 2,
+      name: "No hidden fees",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+    },
+    {
+      id: 3,
+      name: "Transfers are instant",
+      description:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+    },
+  ];
   return (
     <section className="section" id="feature">
       <Container>
@@ -108,6 +128,35 @@ const Feature = () => {
                 revenue streams in crypto for the content you created.
               </p>
             </div>
+            {/* <div className="py-16 bg-gray-50 overflow-hidden lg:py-24">
+              <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-1 lg:gap-5 lg:items-center">
+                <div className="relative">
+                  <h3 className="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                    Transfer funds world-wide
+                  </h3>
+                  <p className="mt-3 text-lg text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Pariatur minima sequi recusandae, porro maiores officia
+                    assumenda aliquam laborum ab aliquid veritatis impedit odit
+                    adipisci optio iste blanditiis facere. Totam, velit.
+                  </p>
+
+                  <dl className="mt-10 space-y-10">
+                    <div className="relative">
+                      <dt>
+                        <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white"></div>
+                        <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                          hey
+                        </p>
+                      </dt>
+                      <dd className="mt-2 ml-16 text-base text-gray-500">
+                        nate
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div> */}
           </Col>
         </Row>
         <FeatureBox features={features} />
