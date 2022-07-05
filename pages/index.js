@@ -76,7 +76,6 @@ export default function Home() {
         <div className="px-4" style={{ maxWidth: "1600px" }}>
           <Hero />
           <Features />
-          <Contact />
           <p className="flex justify-center text-primary font-bold text-2xl">
             {" "}
             All Courses
@@ -118,4 +117,51 @@ export default function Home() {
         </div>{" "}
       </div>
     );
+  return (
+    <div className="flex justify-center">
+      <div className="px-4" style={{ maxWidth: "1600px" }}>
+        <Hero />
+        <Features />
+        <Contact />
+        <p className="flex justify-center text-primary font-bold text-2xl">
+          {" "}
+          All Courses
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+          {" "}
+          {nfts.map((nft, i) => (
+            <div key={i} className="border shadow rounded-xl overflow-hidden">
+              <img src={nft.image} />{" "}
+              <div className="p-4">
+                <p
+                  style={{ height: "20px" }}
+                  className="text-2xl font-semibold"
+                >
+                  {" "}
+                  {nft.name}
+                </p>{" "}
+                <div style={{ height: "10px", overflow: "hidden" }}>
+                  <p className="text-gray-400"> {nft.description} </p>{" "}
+                </div>{" "}
+              </div>{" "}
+              <div className="p-4">
+                <p className="text-2xl font-bold text-black">
+                  {" "}
+                  💰 {nft.price}
+                  ETH{" "}
+                </p>{" "}
+                <button
+                  className="mt-4 w-full bg-blue-500 text-white font-bold py-2 px-12 rounded"
+                  onClick={() => buyNft(nft)}
+                >
+                  {" "}
+                  Buy{" "}
+                </button>{" "}
+              </div>{" "}
+            </div>
+          ))}{" "}
+        </div>{" "}
+      </div>{" "}
+    </div>
+  );
 }

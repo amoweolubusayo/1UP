@@ -115,12 +115,11 @@ export default function Navbar() {
               >
                 About
               </a>
-              <a
-                href=""
-                className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
-              >
-                Contact Us
-              </a>
+              <Link href="/contact" passHref>
+                <a className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300">
+                  Contact Us
+                </a>
+              </Link>
             </div>
           </div>
 
