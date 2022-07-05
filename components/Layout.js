@@ -6,13 +6,11 @@ import Features from "./Features";
 import Contact from "./Contact";
 import Footer from "./Footer";
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <Features />
-      <Contact />
+      <div>{children}</div>
       <Footer />
     </div>
   );

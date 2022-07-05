@@ -59,7 +59,7 @@ export default function MyAssets() {
   function goToCourse() {
     router.push("/course");
   }
-  if (loadingState === "loaded" && !nfts.length)
+  if (loadingState === "loaded")
     return <h1 className="py-10 px-20 text-3xl"> No NFTs owned </h1>;
   return (
     <div className="flex justify-center">

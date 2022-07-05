@@ -3,6 +3,9 @@ import { useEffect, useState, React } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
 import Layout from "../components/Layout";
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import Contact from "../components/Contact";
 import { marketplaceAddress } from "../config";
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
@@ -67,12 +70,14 @@ export default function Home() {
     await transaction.wait();
     loadNFTs();
   }
-  if (loadingState === "loaded" && !nfts.length)
+  if (loadingState === "loaded")
     return <h1 className="px-20 py-10 text-3xl"> No items in marketplace </h1>;
   return (
     <div className="flex justify-center">
       <div className="px-4" style={{ maxWidth: "1600px" }}>
-        <Layout pageTitle="Primero"></Layout>
+        <Hero />
+        <Features />
+        <Contact />
         <p className="flex justify-center text-primary font-bold text-2xl">
           {" "}
           All Courses

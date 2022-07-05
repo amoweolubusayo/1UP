@@ -6,27 +6,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { useAccount, useDisconnect } from "wagmi";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 export default function Navbar() {
   const [active, setActive] = useState(false);
   const handleClick = () => {
@@ -115,12 +95,14 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex items-center space-x-1">
-              <a
-                href=""
-                className="py-4 px-2 text-500 border-b-4 border-500 font-semibold "
-              >
-                Home
-              </a>
+              <Link href="/" passHref>
+                <a
+                  href=""
+                  className="py-4 px-2 text-500 border-b-4 border-500 font-semibold "
+                >
+                  Home
+                </a>
+              </Link>
               <a
                 href=""
                 className="py-4 px-2 text-gray-500 font-semibold hover:text-500 transition duration-300"
@@ -143,13 +125,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-3 ">
-            <a
-              href=""
-              className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-500 hover:text-black transition duration-300"
-            >
-              Log In
-            </a>
-            <Link href="/defaultsignup">
+            <Link href="/login" passHref>
+              <a className="py-2 px-2 font-medium text-gray-500 rounded hover:bg-500 hover:text-black transition duration-300">
+                Log In
+              </a>
+            </Link>
+            <Link href="/signup" passHref>
               <a className="py-2 px-2 font-medium text-black bg-black-500 rounded hover:bg-black-400 transition duration-300">
                 Sign Up
               </a>
