@@ -136,31 +136,38 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="md:hidden flex items-center">
-            <button className="outline-none mobile-menu-button">
+          <div className="flex items-center md:hidden">
+            <button
+              className="outline-none mobile-menu-button"
+              onClick={handleClick}
+            >
               <svg
-                className=" w-6 h-6 text-gray-500 hover:text-500 "
-                x-show="!showMenu"
+                className=" w-6 h-6 text-gray-500 hover:text-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />{" "}
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="hidden mobile-menu">
+      <div className="mobile-menu">
         <ul className="">
           <li className="active">
-            <a
-              href="index.html"
-              className="block text-sm px-2 py-4 text-white bg-500 font-semibold"
-            >
-              Home
-            </a>
+            <Link href="/" passHref>
+              <a className="block text-sm px-2 py-4 text-black bg-500 font-semibold">
+                Home
+              </a>
+            </Link>
           </li>
           <li>
             <a
@@ -179,22 +186,28 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="block text-sm px-2 py-4 hover:bg-500 transition duration-300"
-            >
-              Contact Us
-            </a>
+            <Link href="/contact" passHref>
+              <a className="block text-sm px-2 py-4 hover:bg-500 transition duration-300">
+                Contact Us
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/signup" passHref>
+              <a className="block text-sm px-2 py-4 hover:bg-500 transition duration-300">
+                Sign up
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/login" passHref>
+              <a className="block text-sm px-2 py-4 hover:bg-500 transition duration-300">
+                Login
+              </a>
+            </Link>
           </li>
         </ul>
       </div>
-      {/* <script>
-        const btn = document.querySelector("button.mobile-menu-button"); const
-        menu = document.querySelector(".mobile-menu");
-        btn.addEventListener("click", () => {
-					menu.classList.toggle("hidden");
-				});
-      </script> */}
     </nav>
   );
 }
