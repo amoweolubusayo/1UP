@@ -34,9 +34,11 @@ const FeaturedCourses = () => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-          All Courses
-        </h2>
+        <div>
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            All Courses
+          </h2>
+        </div>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.courses.map((course) => (
@@ -67,11 +69,11 @@ const FeaturedCourses = () => {
                   {course.coursePrice} ETH
                 </p>
               </div>
-              <div class="mt-4 flex pl-4">
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+              <div className="mt-4 flex pl-4">
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                   beginner
                 </span>
-                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                   solidity
                 </span>
               </div>
