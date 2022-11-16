@@ -56,40 +56,40 @@ export default function CreateCourse() {
   //     }
   //   }
 
-  const createCourse = async () => {
-    try {
-      const primeroContract = connectToContract();
+//   const createCourse = async () => {
+//     try {
+//       const primeroContract = connectToContract();
 
-      if (primeroContract) {
-        let deposit = ethers.utils.getAddress(account);
+//       if (primeroContract) {
+//         let deposit = ethers.utils.getAddress(account);
 
-        const txn = await primeroContract.listCourse(
-          eventTimestamp,
-          deposit,
-          maxCapacity,
-          eventDataCID,
-          { gasLimit: 900000 }
-        );
+//         const txn = await primeroContract.listCourse(
+//           eventTimestamp,
+//           deposit,
+//           maxCapacity,
+//           eventDataCID,
+//           { gasLimit: 900000 }
+//         );
 
-        setLoading(true);
-        console.log("Minting...", txn.hash);
-        let wait = await txn.wait();
-        console.log("Minted -- ", txn.hash);
+//         setLoading(true);
+//         console.log("Minting...", txn.hash);
+//         let wait = await txn.wait();
+//         console.log("Minted -- ", txn.hash);
 
-        setEventID(wait.events[0].args[0]);
-        setSuccess(true);
-        setLoading(false);
-        setMessage("Your event has been created successfully.");
-      } else {
-        console.log("Error getting contract.");
-      }
-    } catch (error) {
-      setSuccess(false);
-      setMessage(`There was an error creating your event: ${error.message}`);
-      setLoading(false);
-      console.log(error);
-    }
-  };
+//         setEventID(wait.events[0].args[0]);
+//         setSuccess(true);
+//         setLoading(false);
+//         setMessage("Your event has been created successfully.");
+//       } else {
+//         console.log("Error getting contract.");
+//       }
+//     } catch (error) {
+//       setSuccess(false);
+//       setMessage(`There was an error creating your event: ${error.message}`);
+//       setLoading(false);
+//       console.log(error);
+//     }
+//   };
 
   //   useEffect(() => {
   //     // disable scroll on <input> elements of type number
