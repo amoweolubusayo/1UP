@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-// import { SearchIcon } from "@heroicons/react/solid";
-// import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useAccount, useDisconnect } from "wagmi";
 // import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";

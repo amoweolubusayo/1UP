@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  CloudUploadIcon,
   LockClosedIcon,
   RefreshIcon,
 } from "@heroicons/react/outline";
@@ -9,7 +8,7 @@ const features = [
     name: "Easy to upload Courses",
     description:
       "Monitor your student progress, and earn new revenue streams in crypto",
-    icon: CloudUploadIcon,
+    icon: "",
   },
   {
     name: "NFT Certificates",

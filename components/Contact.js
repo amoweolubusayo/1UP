@@ -1,4 +1,4 @@
-import { MailIcon, PhoneIcon } from "@heroicons/react/outline";
+
 
 const Contact = () => {
   return (
@@ -27,20 +27,20 @@ const Contact = () => {
               <div className="mt-6">
                 <dt className="sr-only">Phone number</dt>
                 <dd className="flex">
-                  <PhoneIcon
+                  {/* <PhoneIcon
                     className="flex-shrink-0 h-6 w-6 text-gray-400"
                     aria-hidden="true"
-                  />
+                  /> */}
                   <span className="ml-3">+1 (555) 123-4567</span>
                 </dd>
               </div>
               <div className="mt-3">
                 <dt className="sr-only">Email</dt>
                 <dd className="flex">
-                  <MailIcon
+                  {/* <MailIcon
                     className="flex-shrink-0 h-6 w-6 text-gray-400"
                     aria-hidden="true"
-                  />
+                  /> */}
                   <span className="ml-3">primeroweb3@gmail.com</span>
                 </dd>
               </div>

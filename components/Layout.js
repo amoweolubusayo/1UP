@@ -1,6 +1,6 @@
 import React from "react";
-// import Head from "next/head";
-import Navbar from "./Navbar";
+import Header from "./Header";
+import FeaturedCourses from "./FeaturedCourses";
 import Hero from "./Hero";
 import Features from "./Features";
 import Contact from "./Contact";
@@ -9,8 +9,8 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     <div>
-      <Navbar />
-      <div>{children}</div>
+      <Header />
+      <FeaturedCourses />
       <Footer />
     </div>
   );
