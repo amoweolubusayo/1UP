@@ -1,17 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://taiwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Introduction to Solidity.",
-    price: "$35",
-    color: "Black",
-  },
-  // More products...
-];
+import Link from "next/link";
 
 const FEATURED_COURSES = gql`
   query FeaturedCourses {
@@ -40,7 +28,7 @@ const FeaturedCourses = () => {
           </h2>
         </div>
 
-        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 clickable-card">
           {data.courses.map((course) => (
             <div
               key={course.id}
@@ -56,10 +44,12 @@ const FeaturedCourses = () => {
               <div className="mt-4 flex justify-between pl-4">
                 <div>
                   <h3 className="text-bg font-weight-bold text-gray-900">
-                    <a href="">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {course.courseTitle}
-                    </a>
+                    <Link href={`/course/${course.id}`}>
+                      <a className="clickable-card__link">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {course.courseTitle}
+                      </a>
+                    </Link>
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
                     By {course.instructorName}

@@ -75,7 +75,7 @@ export default function CreateCourse() {
       }
     } catch (error) {
       setSuccess(false);
-      setMessage(`There was an error creating your event: ${error.message}`);
+      setMessage(`There was an error creating your course: ${error.message}`);
       setLoading(false);
       console.log(error);
     }
@@ -122,7 +122,7 @@ export default function CreateCourse() {
             <div className="space-y-6 sm:space-y-5">
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5">
                 <label
-                  htmlFor="eventname"
+                  htmlFor="yourname"
                   className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                 >
                   Your Name
@@ -145,7 +145,7 @@ export default function CreateCourse() {
               </div>
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5">
                 <label
-                  htmlFor="eventname"
+                  htmlFor="coursename"
                   className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                 >
                   Course name
@@ -164,7 +164,7 @@ export default function CreateCourse() {
               </div>
               <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5">
                 <label
-                  htmlFor="eventname"
+                  htmlFor="courseprice"
                   className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                 >
                   Course price
