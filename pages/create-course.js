@@ -8,7 +8,6 @@ import { useAccount } from "wagmi";
 import Header from "../components/Header";
 import connectToContract from "../utils/primeroContract";
 import Alert from "../components/Alert";
-// import getRandomImage from "../utils/getRandomImage";
 
 export default function CreateCourse() {
   const account = useAccount();
@@ -59,7 +58,7 @@ export default function CreateCourse() {
           courseName,
           courseDescription,
           0x00,
-          { value: FixedNumber.fromValue(10,2)}
+          { value: FixedNumber.fromValue(10, 2) }
         );
 
         console.log(await txn);
@@ -87,7 +86,7 @@ export default function CreateCourse() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
       <section className="relative py-12">
-      {loading && (
+        {loading && (
           <Alert
             alertType={"loading"}
             alertBody={"Please wait"}
@@ -243,11 +242,7 @@ export default function CreateCourse() {
             </div>
           </form>
         )}
-         {success && (
-          <div>
-            You have successfully listed a course{" "}
-          </div>
-        )}
+        {success && <div>You have successfully listed a course </div>}
         {!account && (
           <section className="flex flex-col items-start py-8">
             <p className="mb-4">Please connect your wallet to create events.</p>
