@@ -64,12 +64,13 @@ const Header = () => {
           </div>
 
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+          <Link href="/all-courses">
             <a
-              href="#"
               className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10"
             >
-              About
+              All Courses
             </a>
+            </Link>
             <Link href="/create-course">
               <a
                 className="whitespace-nowrap text-base font-medium
@@ -77,7 +78,7 @@ const Header = () => {
                 target="_blank"
               >
                 {" "}
-                Become an Instructor{" "}
+                Be an Instructor{" "}
               </a>
             </Link>
             <Link href={`/mycourses/${account.address}`}>

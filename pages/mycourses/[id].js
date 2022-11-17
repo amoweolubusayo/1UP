@@ -4,22 +4,22 @@ import Header from "../../components/Header";
 import { useAccount } from "wagmi";
 
 const INSTRUCTOR_COURSES = gql`
-query InstructorCourses($id: String) {
-  courses(where: { instructor: $id }) {
-    courseID
-    courseTitle
-    coursePrice
-    courseDescription
-    instructor
-    instructorName
+  query InstructorCourses($id: String) {
+    courses(where: { instructor: $id }) {
+      courseID
+      courseTitle
+      coursePrice
+      courseDescription
+      instructor
+      instructorName
+    }
   }
-}
 `;
 
 const MyCourse = ({ id = useAccount().address }) => {
- 
-  console.log("hey", INSTRUCTOR_COURSES);
-  const { loading, error, data } = useQuery(INSTRUCTOR_COURSES, {variables: {id}});
+  const { loading, error, data } = useQuery(INSTRUCTOR_COURSES, {
+    variables: { id },
+  });
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   return (
