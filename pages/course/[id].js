@@ -41,23 +41,26 @@ function Course({ course }) {
             </div>
             <p>{course.courseDescription}</p>
           </div>
+
           <div className="max-w-xs w-full flex flex-col gap-4 mb-6 lg:mb-0">
-          <button
-            type="button"
-            className="w-full items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Buy course for {course.coursePrice} MATIC
-          </button>
-          <div className="flex item-center">
-            <UsersIcon className="w-6 mr-2" />
-            <span className="truncate">
-              Course Instructor: {course.instructorName}
-            </span>
+            <button
+              type="button"
+              className="w-full items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Buy course for {course.coursePrice} MATIC
+            </button>
+            <div className="flex item-center">
+              <UsersIcon className="w-6 mr-2" />
+              <span className="truncate">
+                Course Instructor: {course.instructorName}
+              </span>
+            </div>
+
+            <div className="flex item-center my-40">
+              <span className="truncate text-black pl-20 font-extrabold sm:text-xl md:text-xl">RELATED COURSES</span>
+            </div>
           </div>
         </div>
-        </div>
-
-   
       </section>
     </div>
   );
