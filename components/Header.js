@@ -1,12 +1,13 @@
 import { Fragment } from "react";
 import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
+import { useAccount } from "wagmi";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Header = () => {
+  const account = useAccount();
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -79,12 +80,11 @@ const Header = () => {
                 Become an Instructor{" "}
               </a>
             </Link>
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10"
-            >
-              My Courses
-            </a>
+            <Link href={`/mycourses/${account.address}`}>
+              <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10">
+                My Courses
+              </a>
+            </Link>
             <ConnectButton />
           </div>
         </div>
