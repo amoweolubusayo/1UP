@@ -1,5 +1,10 @@
 import { gql, useQuery } from "@apollo/client";
 import Link from "next/link";
+import {
+  ArchiveIcon,
+  EmojiHappyIcon,
+  ExclamationCircleIcon,
+} from "@heroicons/react/outline";
 
 const FEATURED_COURSES = gql`
   query FeaturedCourses {
@@ -20,6 +25,37 @@ const FeaturedCourses = () => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
   return (
+<>
+    <header className="bg-slate-50 shadow">
+    <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+    <a
+    className="inline-block rounded-full border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
+  >
+    All Courses
+  </a>
+  <a
+  className="whitespace-nowrap text-base font-bold text-gray-500 hover:text-gray-900 pl-20"
+>
+  Smart Contract Development
+</a>
+<a
+  className="whitespace-nowrap text-base font-bold text-gray-500 hover:text-gray-900 pl-20"
+>
+  DEFI
+</a>
+<a
+  className="whitespace-nowrap text-base font-bold text-gray-500 hover:text-gray-900 pl-20"
+>
+  Ethereum Development
+</a>
+<a
+  className="whitespace-nowrap text-base font-bold text-gray-500 hover:text-gray-900 pl-20"
+>
+  The Graph
+</a>
+    </div>
+  </header>
+
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div>
@@ -56,7 +92,7 @@ const FeaturedCourses = () => {
                   </p>
                 </div>
                 <p className="text-sm font-medium text-gray-900 pr-3">
-                  {course.coursePrice} ETH
+                  {course.coursePrice} MATIC
                 </p>
               </div>
               <div className="mt-4 flex pl-4">
@@ -72,6 +108,7 @@ const FeaturedCourses = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
