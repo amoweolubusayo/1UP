@@ -1,4 +1,8 @@
-[
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PrimeroMarketplace",
+  "sourceName": "contracts/PrimeroMarketplace.sol",
+  "abi": [
     {
       "inputs": [],
       "stateMutability": "nonpayable",
@@ -845,3 +849,4 @@
       "type": "function"
     }
   ]
+}

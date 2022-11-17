@@ -13,8 +13,8 @@ import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 export default function Home() {
   return (
     <>
-      <Header></Header>
-      <FeaturedCourses></FeaturedCourses>
+      <Header />
+      <FeaturedCourses />
     </>
   );
 }
