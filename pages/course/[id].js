@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Header from "../../components/Header";
+import FeaturedCourses from "../../components/FeaturedCourses";
 import Image from "next/image";
-import { gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import client from "../../apollo-client";
 import { ethers } from "ethers";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -16,7 +17,21 @@ import {
 } from "@heroicons/react/outline";
 import courses from "../course";
 
-function Course({ course }) {
+const RELATED_COURSES = gql`
+  query RelatedCourses {
+    courses {
+      id
+      courseID
+      instructor
+      instructorName
+      courseTitle
+      courseDescription
+      coursePrice
+    }
+  }
+`;
+
+function Course({ course, related }) {
   const account = useAccount();
 
   const [success, setSuccess] = useState(null);
@@ -55,9 +70,11 @@ function Course({ course }) {
                 Course Instructor: {course.instructorName}
               </span>
             </div>
-
             <div className="flex item-center my-40">
-              <span className="truncate text-black pl-20 font-extrabold sm:text-xl md:text-xl">RELATED COURSES</span>
+              <span className="truncate text-black pl-20 font-extrabold sm:text-xl md:text-xl">
+                RELATED COURSES
+              </span>
+              {/* <FeaturedCourses /> */}
             </div>
           </div>
         </div>
