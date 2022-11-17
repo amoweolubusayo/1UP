@@ -47,9 +47,11 @@ function Course({ course, related }) {
         </h1>
         <div className="flex flex-wrap-reverse lg:flex-nowrap">
           <div className="w-full pr-0 lg:pr-24 xl:pr-32">
-            <div className="mb-8 w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+            <div className="mb-8 w-full aspect-w-5 aspect-h-6 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
               <img
-                src="https://www.forbes.com/advisor/wp-content/uploads/2021/03/ethereum-1.jpeg"
+           
+                src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=822&q=80"
+
                 alt="event image"
                 layout="fill"
               />
@@ -72,7 +74,7 @@ function Course({ course, related }) {
             </div>
             <div className="flex item-center my-40">
               <span className="truncate text-black pl-20 font-extrabold sm:text-xl md:text-xl">
-                RELATED COURSES
+
               </span>
               {/* <FeaturedCourses /> */}
             </div>
