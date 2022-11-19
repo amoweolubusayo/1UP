@@ -20,6 +20,7 @@ import courses from "../course";
 import randomizeImage from "../../utils/randomizeImage";
 import { Player } from '@livepeer/react';
 import blenderPoster from '../../public/images/people.webp';
+import randomizeVideo from "../../utils/randomizeVideo";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -73,7 +74,8 @@ function Course({ course, related }) {
 
               <Player 
               title="Course Preview"
-              src={src} 
+              src={randomizeVideo()}
+              alt={src}
              poster={<PosterImage/>} />
             </div>
            
