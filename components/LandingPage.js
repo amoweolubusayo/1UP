@@ -1,6 +1,33 @@
 import Link from "next/link";
+import Features from "./Features";
+import React from "react";
+import {
+  LockClosedIcon,
+  RefreshIcon,
+} from "@heroicons/react/outline";
+const features = [
+  {
+    name: "Easy to upload Courses",
+    description:
+      "Monitor your student progress, and earn new revenue streams in crypto",
+    icon: "",
+  },
+  {
+    name: "NFT Certificates",
+    description:
+      "Buy a course as an NFT, finish the course at your own pace, and get an NFT certificate afterwards",
+    icon: LockClosedIcon,
+  },
+  {
+    name: "Multiple Sources of Income",
+    description:
+      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+    icon: RefreshIcon,
+  },
+];
 export default function LandingPage() {
   return (
+    <>
     <div className="relative overflow-hidden bg-white">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -95,5 +122,7 @@ export default function LandingPage() {
         </div>
       </div>
     </div>
+    <Features/>
+    </>
   );
 }
