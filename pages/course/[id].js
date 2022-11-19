@@ -122,6 +122,14 @@ function Course({ course, related }) {
       </button>
      <span className="font-bold mt-10 text-center">Course Summary</span> 
       <p>{course.courseDescription}</p>
+
+      <span className="font-bold mt-10 text-center mt-20">You might also like</span> 
+      <span className="text-center">Introduction to The Graph</span> 
+      <Player 
+      title="Course Preview"
+      src={randomizeVideo()}
+      alt={src}
+     poster={<PosterImage/>} />
           </div>
 
   
