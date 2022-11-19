@@ -14,10 +14,16 @@ import {
   TicketIcon,
   UsersIcon,
   LinkIcon,
+  StarIcon
 } from "@heroicons/react/outline";
 import courses from "../course";
 import randomizeImage from "../../utils/randomizeImage";
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
+const reviews = { href: '#', average: 4, totalCount: 117 }
 const RELATED_COURSES = gql`
   query RelatedCourses {
     courses {
@@ -48,7 +54,7 @@ function Course({ course, related }) {
         </h1>
         <div className="flex flex-wrap-reverse lg:flex-nowrap">
           <div className="w-full pr-0 lg:pr-24 xl:pr-32">
-            <div className="mb-8 w-full aspect-w-5 aspect-h-6 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+            <div className="mb-8 w-full rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
               <img
            
                 src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=822&q=80"
@@ -56,29 +62,55 @@ function Course({ course, related }) {
                 layout="fill"
               />
             </div>
-            <p>{course.courseDescription}</p>
+           
           </div>
 
           <div className="max-w-xs w-full flex flex-col gap-4 mb-6 lg:mb-0">
-            <button
-              type="button"
-              className="w-full items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Buy course for {course.coursePrice} MATIC
-            </button>
-            <div className="flex item-center">
-              <UsersIcon className="w-6 mr-2" />
-              <span className="truncate">
-                Course Instructor: {course.instructorName}
-              </span>
-            </div>
-            <div className="flex item-center my-40">
-              <span className="truncate text-black pl-20 font-extrabold sm:text-xl md:text-xl">
+          
 
-              </span>
-              {/* <FeaturedCourses /> */}
+            <div className="mt-6">
+            <h3 className="sr-only">Reviews</h3>
+            <div className="flex items-center">
+              <div className="flex items-center">
+                {[0, 1, 2, 3, 4].map((rating) => (
+                  <StarIcon
+                    key={rating}
+                    className={classNames(
+                      reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
+                      'h-5 w-5 flex-shrink-0'
+                    )}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+              <p className="sr-only">{reviews.average} out of 5 stars</p>
+              <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                {reviews.totalCount} reviews
+              </a>
             </div>
           </div>
+
+         
+        <div className="flex item-center">
+          <UsersIcon className="w-6 mr-2" />
+          <span className="truncate">
+            Course Instructor: {course.instructorName}
+          </span>
+        </div>
+
+        <button
+        type="button"
+        className="mt-1 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Buy course for {course.coursePrice} MATIC
+      </button>
+     <span className="font-bold mt-10 text-center">Course Summary</span> 
+      <p>{course.courseDescription}</p>
+          </div>
+
+   
+
+          
         </div>
       </section>
     </div>
