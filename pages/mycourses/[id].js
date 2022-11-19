@@ -2,10 +2,12 @@ import { gql, useQuery, client } from "@apollo/client";
 import Link from "next/link";
 import Header from "../../components/Header";
 import { useAccount } from "wagmi";
+import { Player } from '@livepeer/react';
 
 const INSTRUCTOR_COURSES = gql`
   query InstructorCourses($id: String) {
     courses(where: { instructor: $id }) {
+      id
       courseID
       courseTitle
       coursePrice
@@ -17,6 +19,9 @@ const INSTRUCTOR_COURSES = gql`
 `;
 
 const MyCourse = ({ id = useAccount().address }) => {
+  const src =
+  'https://ipfs.livepeer.studio/ipfs/QmURv3J5BGsz23GaCUm7oXncm2M9SCj8RQDuFPGzAFSJw8';
+
   const { loading, error, data } = useQuery(INSTRUCTOR_COURSES, {
     variables: { id },
   });

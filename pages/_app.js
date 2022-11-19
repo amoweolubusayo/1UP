@@ -12,6 +12,17 @@ import { useAccount, useDisconnect } from "wagmi";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import {
+  LivepeerConfig,
+  createReactClient,
+  studioProvider,
+} from '@livepeer/react';
+
+const livepeerClient = createReactClient({
+  provider: studioProvider({
+    apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
+  }),
+});
 
 const { chains, provider } = configureChains(
   [chain.polygonMumbai],
@@ -36,9 +47,11 @@ export default function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <ApolloProvider client={client}>
+        <LivepeerConfig client={livepeerClient}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          </LivepeerConfig>
         </ApolloProvider>
       </RainbowKitProvider>
     </WagmiConfig>

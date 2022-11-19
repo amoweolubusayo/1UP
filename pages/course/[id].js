@@ -18,10 +18,25 @@ import {
 } from "@heroicons/react/outline";
 import courses from "../course";
 import randomizeImage from "../../utils/randomizeImage";
+import { Player } from '@livepeer/react';
+import blenderPoster from '../../public/images/people.webp';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+const PosterImage = () => {
+  return (
+    <Image
+      src={blenderPoster}
+      layout="fill"
+      objectFit="cover"
+      placeholder="blur"
+    />
+  );
+};
+
+const src =
+  'https://bafybeiai3lx2v67nz5nyavs27qrpkx5q7wqplwgiq63zvgq6cgqy7ndga4.ipfs.nftstorage.link';
 
 const reviews = { href: '#', average: 4, totalCount: 117 }
 const RELATED_COURSES = gql`
@@ -55,12 +70,11 @@ function Course({ course, related }) {
         <div className="flex flex-wrap-reverse lg:flex-nowrap">
           <div className="w-full pr-0 lg:pr-24 xl:pr-32">
             <div className="mb-8 w-full rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-              <img
-           
-                src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=822&q=80"
-                alt="event image"
-                layout="fill"
-              />
+
+              <Player 
+              title="Course Preview"
+              src={src} 
+             poster={<PosterImage/>} />
             </div>
            
           </div>
@@ -108,7 +122,7 @@ function Course({ course, related }) {
       <p>{course.courseDescription}</p>
           </div>
 
-   
+  
 
           
         </div>

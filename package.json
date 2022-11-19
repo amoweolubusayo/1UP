@@ -13,6 +13,7 @@
     "@apollo/client": "^3.7.1",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "v1",
+    "@livepeer/react": "^1.5.3",
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@openzeppelin/contracts": "^4.5.0",

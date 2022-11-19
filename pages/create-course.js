@@ -1,15 +1,27 @@
 import { useState, useEffect } from "react";
+import { useAsset, useUpdateAsset } from "@livepeer/react";
 import { FixedNumber } from "ethers";
 import Link from "next/link";
 import { ethers } from "ethers";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
-// import Alert from "../components/Alert";
 import Header from "../components/Header";
 import connectToContract from "../utils/primeroContract";
 import Alert from "../components/Alert";
+import { useMemo } from "react";
 
 export default function CreateCourse() {
+  const assetId = "64d3ddee-c44b-4c9c-8739-c3c530d6dfea";
+
+  const { mutate: updateAsset, status: updateStatus } = useUpdateAsset({
+    assetId,
+    storage: {
+      ipfs: true,
+      // metadata overrides can be added here
+      // see the source code behind this example
+    },
+  });
+
   const account = useAccount();
 
   const [courseName, setCourseName] = useState("");
@@ -224,6 +236,8 @@ export default function CreateCourse() {
                   />
                 </div>
               </div>
+           
+             
             </div>
             <div className="pt-5">
               <div className="flex justify-end">
