@@ -51,7 +51,7 @@ function Course({ course, related }) {
             <div className="mb-8 w-full aspect-w-5 aspect-h-6 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
               <img
            
-                src={randomizeImage()}
+                src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=822&q=80"
                 alt="event image"
                 layout="fill"
               />
