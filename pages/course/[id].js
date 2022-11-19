@@ -14,16 +14,16 @@ import {
   TicketIcon,
   UsersIcon,
   LinkIcon,
-  StarIcon
+  StarIcon,
 } from "@heroicons/react/outline";
 import courses from "../course";
 import randomizeImage from "../../utils/randomizeImage";
-import { Player } from '@livepeer/react';
-import blenderPoster from '../../public/images/people.webp';
+import { Player } from "@livepeer/react";
+import blenderPoster from "../../public/images/people.webp";
 import randomizeVideo from "../../utils/randomizeVideo";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 const PosterImage = () => {
   return (
@@ -37,9 +37,9 @@ const PosterImage = () => {
 };
 
 const src =
-  'https://bafybeiai3lx2v67nz5nyavs27qrpkx5q7wqplwgiq63zvgq6cgqy7ndga4.ipfs.nftstorage.link';
+  "https://bafybeiai3lx2v67nz5nyavs27qrpkx5q7wqplwgiq63zvgq6cgqy7ndga4.ipfs.nftstorage.link";
 
-const reviews = { href: '#', average: 4, totalCount: 117 }
+const reviews = { href: "#", average: 4, totalCount: 117 };
 const RELATED_COURSES = gql`
   query RelatedCourses {
     courses {
@@ -71,70 +71,72 @@ function Course({ course, related }) {
         <div className="flex flex-wrap-reverse lg:flex-nowrap">
           <div className="w-full pr-0 lg:pr-24 xl:pr-32">
             <div className="mb-8 w-full rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-
-              <Player 
-              title="Course Preview"
-              src={randomizeVideo()}
-              alt={src}
-             poster={<PosterImage/>} />
+              <Player
+                title="Course Preview"
+                src={randomizeVideo()}
+                alt={src}
+                poster={<PosterImage />}
+              />
             </div>
-           
+            <span className="font-bold mt-10 text-center">Course Summary</span>
+            <p>{course.courseDescription}</p>
           </div>
 
           <div className="max-w-xs w-full flex flex-col gap-4 mb-6 lg:mb-0">
-          
-
             <div className="mt-6">
-            <h3 className="sr-only">Reviews</h3>
-            <div className="flex items-center">
+              <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
-                {[0, 1, 2, 3, 4].map((rating) => (
-                  <StarIcon
-                    key={rating}
-                    className={classNames(
-                      reviews.average > rating ? 'text-gray-900' : 'text-gray-200',
-                      'h-5 w-5 flex-shrink-0'
-                    )}
-                    aria-hidden="true"
-                  />
-                ))}
+                <div className="flex items-center">
+                  {[0, 1, 2, 3, 4].map((rating) => (
+                    <StarIcon
+                      key={rating}
+                      className={classNames(
+                        reviews.average > rating
+                          ? "text-gray-900"
+                          : "text-gray-200",
+                        "h-5 w-5 flex-shrink-0"
+                      )}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </div>
+                <p className="sr-only">{reviews.average} out of 5 stars</p>
+                <a
+                  href={reviews.href}
+                  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                >
+                  {reviews.totalCount} reviews
+                </a>
               </div>
-              <p className="sr-only">{reviews.average} out of 5 stars</p>
-              <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                {reviews.totalCount} reviews
-              </a>
             </div>
+
+            <div className="flex item-center">
+              <UsersIcon className="w-6 mr-2" />
+              <span className="truncate">
+                Course Instructor: {course.instructorName}
+              </span>
+            </div>
+
+            <button
+              type="button"
+              className="mt-1 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              Buy course for {course.coursePrice} MATIC
+            </button>
+            <span className="font-bold mt-10 text-center">Course Summary</span>
+            <p>{course.courseDescription}</p>
+
+            <span className="font-bold mt-10 text-center mt-20">
+              You might also like
+            </span>
+            <span className="text-center">Introduction to The Graph</span>
+            <Player
+              title="Course Preview"
+              src={randomizeVideo()}
+              alt={src}
+              poster={<PosterImage />}
+            />
           </div>
-
-         
-        <div className="flex item-center">
-          <UsersIcon className="w-6 mr-2" />
-          <span className="truncate">
-            Course Instructor: {course.instructorName}
-          </span>
-        </div>
-
-        <button
-        type="button"
-        className="mt-1 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        Buy course for {course.coursePrice} MATIC
-      </button>
-     <span className="font-bold mt-10 text-center">Course Summary</span> 
-      <p>{course.courseDescription}</p>
-
-      <span className="font-bold mt-10 text-center mt-20">You might also like</span> 
-      <span className="text-center">Introduction to The Graph</span> 
-      <Player 
-      title="Course Preview"
-      src={randomizeVideo()}
-      alt={src}
-     poster={<PosterImage/>} />
-          </div>
-
-  
-
-          
         </div>
       </section>
     </div>
