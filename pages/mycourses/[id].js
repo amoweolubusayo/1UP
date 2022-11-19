@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import { useAccount } from "wagmi";
 import { Player } from '@livepeer/react';
+import randomizeImage from "../../utils/randomizeImage";
 
 const INSTRUCTOR_COURSES = gql`
   query InstructorCourses($id: String) {
@@ -46,8 +47,8 @@ const MyCourse = ({ id = useAccount().address }) => {
               >
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
-                    src="https://www.forbes.com/advisor/wp-content/uploads/2021/03/ethereum-1.jpeg"
-                    //   alt={product.imageAlt}
+                  src={randomizeImage()}
+                  alt="https://www.forbes.com/advisor/wp-content/uploads/2021/03/ethereum-1.jpeg"
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
                 </div>

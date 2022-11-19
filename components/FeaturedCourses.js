@@ -73,7 +73,7 @@ const FeaturedCourses = () => {
             >
               <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                 <img
-                  src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=822&q=80"
+                  src={randomizeImage()}
                   alt={randomizeImage()}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
