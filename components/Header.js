@@ -86,6 +86,11 @@ const Header = () => {
                 My Courses
               </a>
             </Link>
+            <Link href={`/mycourses/${account.address}`}>
+              <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10">
+                Docs
+              </a>
+            </Link>
             <ConnectButton />
           </div>
         </div>

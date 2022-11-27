@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { useAsset, useUpdateAsset } from "@livepeer/react";
+import { useCallback, useState, useEffect ,useMemo } from "react";
+import { useCreateAsset, useUpdateAsset } from "@livepeer/react";
+import { useDropzone } from "react-dropzone";
 import { FixedNumber } from "ethers";
 import Link from "next/link";
 import { ethers } from "ethers";
@@ -8,9 +9,9 @@ import { useAccount } from "wagmi";
 import Header from "../components/Header";
 import connectToContract from "../utils/primeroContract";
 import Alert from "../components/Alert";
-import { useMemo } from "react";
 
-export default function CreateCourse() {
+export default function CreateCourse({createStatus, createError}) {
+  
   const assetId = "64d3ddee-c44b-4c9c-8739-c3c530d6dfea";
 
   const { mutate: updateAsset, status: updateStatus } = useUpdateAsset({
@@ -35,7 +36,6 @@ export default function CreateCourse() {
   const [loading, setLoading] = useState(null);
   const [courseID, setcourseID] = useState(null);
 
-  // console.log("Instructor Address", account.address.toLowerCase());
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -93,6 +93,92 @@ export default function CreateCourse() {
   };
 
   useEffect(() => {});
+
+  
+
+  const [video, setVideo] = useState("");
+  const {
+    mutate: createAsset,
+    data: asset,
+    status,
+    progress,
+    error,
+  } = useCreateAsset(
+    video
+      ? {
+          sources: [{ name: video.name, file: video }],
+        }
+      : null
+  );
+
+  const onDrop = useCallback(async (acceptedFiles) => {
+    if (acceptedFiles && acceptedFiles.length > 0 && acceptedFiles?.[0]) {
+      setVideo(acceptedFiles[0]);
+    }
+  }, []);
+
+  const { getRootProps, getInputProps , isFocused,
+    isDragAccept,
+    isDragReject} = useDropzone({
+    accept: {
+      "video/*": [".mp4"],
+    },
+    maxFiles: 1,
+    onDrop,
+  });
+
+  const baseStyle = {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '20px',
+    borderWidth: 2,
+    borderRadius: 2,
+    borderColor: '#eeeeee',
+    borderStyle: 'dashed',
+    backgroundColor: '#fafafa',
+    color: '#bdbdbd',
+    outline: 'none',
+    transition: 'border .24s ease-in-out'
+  };
+  
+  const focusedStyle = {
+    borderColor: '#2196f3'
+  };
+  
+  const acceptStyle = {
+    borderColor: '#00e676'
+  };
+  
+  const rejectStyle = {
+    borderColor: '#ff1744'
+  };
+
+  const style = useMemo(() => ({
+    ...baseStyle,
+    ...(isFocused ? focusedStyle : {}),
+    ...(isDragAccept ? acceptStyle : {}),
+    ...(isDragReject ? rejectStyle : {})
+  }), [
+    isFocused,
+    isDragAccept,
+    isDragReject
+  ]);
+
+  const progressFormatted = useMemo(
+    () =>
+      progress?.[0].phase === "failed"
+        ? "Failed to process video."
+        : progress?.[0].phase === "waiting"
+        ? "Waiting"
+        : progress?.[0].phase === "uploading"
+        ? `Uploading: ${Math.round(progress?.[0]?.progress * 100)}%`
+        : progress?.[0].phase === "processing"
+        ? `Processing: ${Math.round(progress?.[0].progress * 100)}%`
+        : null,
+    [progress]
+  );
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -236,8 +322,39 @@ export default function CreateCourse() {
                   />
                 </div>
               </div>
-           
-             
+              <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5">
+                <label
+                  htmlFor="max-capacity"
+                  className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                >
+                  Upload your pre-recorded course
+                </label>
+              <div {...getRootProps({className: 'dropzone', style})}>
+                <input {...getInputProps()} />
+                <p>
+                Drag and drop or browse files
+                </p>
+              </div>
+</div>
+              {createError?.message && <span>{createError.message}</span>}
+
+              {video ? (
+                <span>{video.name}</span>
+              ) : (
+                <span>Your video will appear here.</span>
+              )}
+              {progressFormatted && <span>{progressFormatted}</span>}
+
+              <button
+                onClick={() => {
+                  createAsset?.();
+                }}
+                size="2"
+                disabled={!createAsset || createStatus === "loading"}
+                className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Upload
+              </button>
             </div>
             <div className="pt-5">
               <div className="flex justify-end">
