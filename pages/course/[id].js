@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import FeaturedCourses from "../../components/FeaturedCourses";
+import { FixedNumber, FixedDecimal } from "ethers";
 import Image from "next/image";
 import { gql, useQuery } from "@apollo/client";
 import client from "../../apollo-client";
 import { ethers } from "ethers";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
-import connectContract from "../../utils/primeroContract";
+import connectToContract from "../../utils/primeroContract";
 import Alert from "../../components/Alert";
 import {
   EmojiHappyIcon,
@@ -18,7 +19,7 @@ import {
 } from "@heroicons/react/outline";
 import courses from "../course";
 import randomizeImage from "../../utils/randomizeImage";
-import { Player , useAssetMetrics, useCreateAsset} from "@livepeer/react";
+import { Player, useAssetMetrics, useCreateAsset } from "@livepeer/react";
 import blenderPoster from "../../public/images/people.webp";
 import randomizeVideo from "../../utils/randomizeVideo";
 
@@ -56,11 +57,40 @@ const RELATED_COURSES = gql`
 
 function Course({ course, related }) {
   const account = useAccount();
-
   const [success, setSuccess] = useState(null);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(null);
 
+  const purchaseCourse = async () => {
+    try {
+      const primeroContract = connectToContract();
+      console.log(primeroContract);
+      console.log("Student Address", account);
+      console.log("course ID is:", course.courseID);
+      if (primeroContract) {
+        let txn = await primeroContract.buyCourse(course.courseID, {
+          value: FixedNumber.fromValue(11, 1),
+        });
+        console.log(await txn);
+        setLoading(true);
+        console.log("Minting...", txn.hash);
+        await txn.wait();
+        console.log("Minted -- ", txn.hash);
+        setSuccess(true);
+        setLoading(false);
+        setMessage("You have successfully purchased this course");
+      } else {
+        console.log("Error getting contract.");
+      }
+    } catch (error) {
+      setSuccess(false);
+      setMessage(`There was an error creating your course: ${error.message}`);
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {});
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
@@ -83,6 +113,30 @@ function Course({ course, related }) {
           </div>
 
           <div className="max-w-xs w-full flex flex-col gap-4 mb-6 lg:mb-0">
+          {loading && (
+          <Alert
+            alertType={"loading"}
+            alertBody={"Please wait"}
+            triggerAlert={true}
+            color={"white"}
+          />
+        )}
+        {success && (
+          <Alert
+            alertType={"success"}
+            alertBody={message}
+            triggerAlert={true}
+            color={"palegreen"}
+          />
+        )}
+        {success === false && (
+          <Alert
+            alertType={"failed"}
+            alertBody={message}
+            triggerAlert={true}
+            color={"palevioletred"}
+          />
+        )}
             <div className="mt-6">
               <h3 className="sr-only">Reviews</h3>
               <div className="flex items-center">
@@ -120,6 +174,7 @@ function Course({ course, related }) {
             <button
               type="button"
               className="mt-1 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              onClick={purchaseCourse}
             >
               Buy course for {course.coursePrice} MATIC
             </button>
