@@ -9,6 +9,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import connectContract from "../../utils/primeroContract";
 import Alert from "../../components/Alert";
+
 import {
   EmojiHappyIcon,
   TicketIcon,
@@ -53,6 +54,7 @@ const RELATED_COURSES = gql`
     }
   }
 `;
+
 
 function Course({ course, related }) {
   const account = useAccount();
@@ -120,6 +122,7 @@ function Course({ course, related }) {
             <button
               type="button"
               className="mt-1 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            onClick={()=>buyPrimeroCourse}
             >
               Buy course for {course.coursePrice} MATIC
             </button>
