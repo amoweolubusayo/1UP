@@ -1,8 +1,9 @@
 import { gql, useQuery, client } from "@apollo/client";
 import Link from "next/link";
 import Header from "../../components/Header";
+import SideNav from "../../components/SideNav";
 import { useAccount } from "wagmi";
-import { Player } from '@livepeer/react';
+import { Player } from "@livepeer/react";
 import randomizeImage from "../../utils/randomizeImage";
 
 const INSTRUCTOR_COURSES = gql`
@@ -21,7 +22,7 @@ const INSTRUCTOR_COURSES = gql`
 
 const MyCourse = ({ id = useAccount().address }) => {
   const src =
-  'https://ipfs.livepeer.studio/ipfs/QmURv3J5BGsz23GaCUm7oXncm2M9SCj8RQDuFPGzAFSJw8';
+    "https://ipfs.livepeer.studio/ipfs/QmURv3J5BGsz23GaCUm7oXncm2M9SCj8RQDuFPGzAFSJw8";
 
   const { loading, error, data } = useQuery(INSTRUCTOR_COURSES, {
     variables: { id },
@@ -31,11 +32,12 @@ const MyCourse = ({ id = useAccount().address }) => {
   return (
     <>
       <Header />
+      <SideNav />
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <div>
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Your Courses
+              Dashboard
             </h2>
           </div>
 
@@ -47,8 +49,8 @@ const MyCourse = ({ id = useAccount().address }) => {
               >
                 <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                   <img
-                  src={randomizeImage()}
-                  alt="https://www.forbes.com/advisor/wp-content/uploads/2021/03/ethereum-1.jpeg"
+                    src={randomizeImage()}
+                    alt="https://www.forbes.com/advisor/wp-content/uploads/2021/03/ethereum-1.jpeg"
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />
                 </div>

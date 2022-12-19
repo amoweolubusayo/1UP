@@ -16,7 +16,7 @@ import {
   LivepeerConfig,
   createReactClient,
   studioProvider,
-} from '@livepeer/react';
+} from "@livepeer/react";
 
 const livepeerClient = createReactClient({
   provider: studioProvider({
@@ -47,10 +47,10 @@ export default function MyApp({ Component, pageProps }) {
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
         <ApolloProvider client={client}>
-        <LivepeerConfig client={livepeerClient}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <LivepeerConfig client={livepeerClient}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </LivepeerConfig>
         </ApolloProvider>
       </RainbowKitProvider>

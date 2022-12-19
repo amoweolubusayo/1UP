@@ -64,12 +64,10 @@ const Header = () => {
           </div>
 
           <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-          <Link href="/all-courses">
-            <a
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10"
-            >
-              All Courses
-            </a>
+            <Link href="/all-courses">
+              <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10">
+                All Courses
+              </a>
             </Link>
             <Link href="/create-course">
               <a
@@ -91,7 +89,7 @@ const Header = () => {
                 Docs
               </a>
             </Link>
-            <ConnectButton />
+            <ConnectButton label="Log in" />
           </div>
         </div>
       </div>

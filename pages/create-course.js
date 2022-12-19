@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect ,useMemo } from "react";
+import { useCallback, useState, useEffect, useMemo } from "react";
 import { useCreateAsset, useUpdateAsset } from "@livepeer/react";
 import { useDropzone } from "react-dropzone";
 import { FixedNumber } from "ethers";
@@ -10,8 +10,7 @@ import Header from "../components/Header";
 import connectToContract from "../utils/primeroContract";
 import Alert from "../components/Alert";
 
-export default function CreateCourse({createStatus, createError}) {
-  
+export default function CreateCourse({ createStatus, createError }) {
   const assetId = "64d3ddee-c44b-4c9c-8739-c3c530d6dfea";
 
   const { mutate: updateAsset, status: updateStatus } = useUpdateAsset({
@@ -30,16 +29,24 @@ export default function CreateCourse({createStatus, createError}) {
   const [coursePrice, setcoursePrice] = useState("");
   const [courseDescription, setcourseDescription] = useState("");
   const [studentNumber, setStudentNumber] = useState("");
+  let [videoUrl, setvideoUrl] = useState("");
 
   const [success, setSuccess] = useState(null);
   const [message, setMessage] = useState(null);
   const [loading, setLoading] = useState(null);
   const [courseID, setcourseID] = useState(null);
 
+  function strToUtf16Bytes(str) {
+    const bytes = [];
+    for (let i = 0; i < str.length; i++) {
+      const code = str.charCodeAt(i); // x00-xFFFF
+      bytes.push(code & 255, code >> 8); // low, high
+    }
+    return bytes;
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     const body = {
       coursename: courseName,
       sellername: instructorName,
@@ -69,10 +76,9 @@ export default function CreateCourse({createStatus, createError}) {
           instructorName,
           courseName,
           courseDescription,
-          0x00,
+          strToUtf16Bytes(videoUrl),
           { value: FixedNumber.fromValue(10, 2) }
         );
-
         console.log(await txn);
         setLoading(true);
         console.log("Minting...", txn.hash);
@@ -94,12 +100,10 @@ export default function CreateCourse({createStatus, createError}) {
 
   useEffect(() => {});
 
-  
-
   const [video, setVideo] = useState("");
   const {
     mutate: createAsset,
-    data: asset,
+    data: assets,
     status,
     progress,
     error,
@@ -117,54 +121,52 @@ export default function CreateCourse({createStatus, createError}) {
     }
   }, []);
 
-  const { getRootProps, getInputProps , isFocused,
-    isDragAccept,
-    isDragReject} = useDropzone({
-    accept: {
-      "video/*": [".mp4"],
-    },
-    maxFiles: 1,
-    onDrop,
-  });
+  const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
+    useDropzone({
+      accept: {
+        "video/*": [".mp4"],
+      },
+      maxFiles: 1,
+      onDrop,
+    });
 
   const baseStyle = {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '20px',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "20px",
     borderWidth: 2,
     borderRadius: 2,
-    borderColor: '#eeeeee',
-    borderStyle: 'dashed',
-    backgroundColor: '#fafafa',
-    color: '#bdbdbd',
-    outline: 'none',
-    transition: 'border .24s ease-in-out'
-  };
-  
-  const focusedStyle = {
-    borderColor: '#2196f3'
-  };
-  
-  const acceptStyle = {
-    borderColor: '#00e676'
-  };
-  
-  const rejectStyle = {
-    borderColor: '#ff1744'
+    borderColor: "#eeeeee",
+    borderStyle: "dashed",
+    backgroundColor: "#fafafa",
+    color: "#bdbdbd",
+    outline: "none",
+    transition: "border .24s ease-in-out",
   };
 
-  const style = useMemo(() => ({
-    ...baseStyle,
-    ...(isFocused ? focusedStyle : {}),
-    ...(isDragAccept ? acceptStyle : {}),
-    ...(isDragReject ? rejectStyle : {})
-  }), [
-    isFocused,
-    isDragAccept,
-    isDragReject
-  ]);
+  const focusedStyle = {
+    borderColor: "#2196f3",
+  };
+
+  const acceptStyle = {
+    borderColor: "#00e676",
+  };
+
+  const rejectStyle = {
+    borderColor: "#ff1744",
+  };
+
+  const style = useMemo(
+    () => ({
+      ...baseStyle,
+      ...(isFocused ? focusedStyle : {}),
+      ...(isDragAccept ? acceptStyle : {}),
+      ...(isDragReject ? rejectStyle : {}),
+    }),
+    [isFocused, isDragAccept, isDragReject]
+  );
 
   const progressFormatted = useMemo(
     () =>
@@ -173,9 +175,13 @@ export default function CreateCourse({createStatus, createError}) {
         : progress?.[0].phase === "waiting"
         ? "Waiting"
         : progress?.[0].phase === "uploading"
-        ? `Uploading: ${Math.round(progress?.[0]?.progress * 100)}%`
+        ? `Uploading, please kindly wait: ${Math.round(
+            progress?.[0]?.progress * 100
+          )}%`
         : progress?.[0].phase === "processing"
-        ? `Processing: ${Math.round(progress?.[0].progress * 100)}%`
+        ? `Processing, please kindly wait: ${Math.round(
+            progress?.[0].progress * 100
+          )}%`
         : null,
     [progress]
   );
@@ -329,17 +335,15 @@ export default function CreateCourse({createStatus, createError}) {
                 >
                   Upload your pre-recorded course
                 </label>
-              <div {...getRootProps({className: 'dropzone', style})}>
-                <input {...getInputProps()} />
-                <p>
-                Drag and drop or browse files
-                </p>
+                <div {...getRootProps({ className: "dropzone", style })}>
+                  <input {...getInputProps()} />
+                  <p>Drag and drop or browse files</p>
+                </div>
               </div>
-</div>
               {createError?.message && <span>{createError.message}</span>}
 
               {video ? (
-                <span>{video.name}</span>
+                <span className="pr-3">Course Name: {video.name}</span>
               ) : (
                 <span>Your video will appear here.</span>
               )}
@@ -349,12 +353,29 @@ export default function CreateCourse({createStatus, createError}) {
                 onClick={() => {
                   createAsset?.();
                 }}
+                type="button"
                 size="2"
                 disabled={!createAsset || createStatus === "loading"}
                 className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Upload
               </button>
+              {assets?.map((asset) => (
+                <div key={asset.id}>
+                  <div>
+                    <div>Upload done</div>
+                    <div>
+                      <input
+                        className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border border-gray-300 rounded-md"
+                        value={(videoUrl = asset?.playbackUrl)}
+                        name="videoUrl"
+                        onChange={(e) => setvideoUrl(e.target.value)}
+                        readOnly
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="pt-5">
               <div className="flex justify-end">
