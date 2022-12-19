@@ -110,13 +110,23 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
+              <div className="flex items-center space-x-6 lg:space-x-8">
+
               <Link href="/all-courses">
                 <a
                   className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
                 >
-                  View Courses
+                  📚 View Courses
                 </a>
               </Link>
+              <Link href="https://docs.lens.xyz">
+                <a
+                  className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
+                >
+                 🌍 Community 
+                </a>
+              </Link>
+              </div>
             </div>
           </div>
         </div>

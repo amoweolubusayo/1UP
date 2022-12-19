@@ -58,6 +58,7 @@ const RELATED_COURSES = gql`
   }
 `;
 
+
 function Course({ course, related }) {
   const account = useAccount();
   const [success, setSuccess] = useState(null);
