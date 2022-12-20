@@ -119,7 +119,7 @@ export default function LandingPage() {
                   📚 View Courses
                 </a>
               </Link>
-              <Link href="https://docs.lens.xyz">
+              <Link href="https://frabjous-muffin-89d28d.netlify.app/">
                 <a
                   className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
                 >
