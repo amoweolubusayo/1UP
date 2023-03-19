@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { getDefaultWallets, RainbowKitProvider, Theme} from "@rainbow-me/rainbowkit";
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo-client";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
@@ -42,10 +42,16 @@ const wagmiClient = createClient({
   connectors,
 });
 
+const myTheme = {
+  colors: {
+    connectButtonBackground:'Pink',
+  },
+};
+
 export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider chains={chains} myTheme={Theme}>
         <ApolloProvider client={client}>
           <LivepeerConfig client={livepeerClient}>
             <Layout>

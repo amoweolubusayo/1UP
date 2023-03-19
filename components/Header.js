@@ -1,10 +1,13 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectButton ,Theme} from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
+
+
 
 const Header = () => {
   const account = useAccount();
@@ -15,12 +18,16 @@ const Header = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
               <a>
-                <span className="sr-only">Your Company</span>
-                <img
+            
+                {/* <img
                   className="h-8 w-auto sm:h-10"
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt=""
-                />
+                /> */} 
+               <span className="hidden sm:block cursor-pointer font-poppins-bold text-xl">
+               📚 Primero3
+                    </span>
+                    
               </a>
             </Link>
           </div>
@@ -84,12 +91,15 @@ const Header = () => {
                 My Courses
               </a>
             </Link>
-            <Link href={`/mycourses/${account.address}`}>
+            {/* <Link href={`/mycourses/${account.address}`}>
               <a className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 pr-10">
                 Docs
               </a>
-            </Link>
-            <ConnectButton label="Log in" />
+            </Link> */}
+            </div>
+           <div>
+            <ConnectButton label="Log In"
+            />
           </div>
         </div>
       </div>

@@ -8,8 +8,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["Space Grotesk", ...defaultTheme.fontFamily.serif],
+        "poppins-bold": ["Poppins Bold", ...defaultTheme.fontFamily.sans],
+        "poppins-semi-bold": ["Poppins SemiBold", ...defaultTheme.fontFamily.sans],
       },
+    
       // colors: {
       //   // blue: colors.blue,
       //   // cyan: colors.cyan,
