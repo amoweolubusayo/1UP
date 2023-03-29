@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com", "ipfs.io", "imgur.com"],
+    domains: ["images.unsplash.com", "ipfs.io", "imgur.com","plus.unsplash.com"],
   },
   async rewrites() {
     return [

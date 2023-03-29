@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"
 import Features from "./Features";
 import React from "react";
 import {
@@ -28,14 +29,16 @@ const features = [
 export default function LandingPage() {
   return (
     <>
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-gradient-to-br from-orange-600 to-green-300">
+    
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
         <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
-            <h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Primero3 is here
+          
+            <h1 className="font text-4xl font-bold tracking-tight text-green-400 sm:text-6xl">
+              Primero3 <span className="font text-4xl font-bold tracking-tight text-cyan-700 sm:text-6xl">Is Here</span>
             </h1>
-            <p className="mt-4 text-xl text-gray-500">
+            <p className="mt-4 text-xl text-white-500 font-mono-bold">
               Primero is the world’s first web3 online learning platform and
               marketplace that revolutionizes access to courses and skills in
               developing countries in Africa and Latin America. Primero seeks to
