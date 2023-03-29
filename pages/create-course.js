@@ -99,7 +99,7 @@ export default function CreateCourse({ createStatus, createError }) {
   };
 
   useEffect(() => {});
-
+//Livepeer vide file Upload
   const [video, setVideo] = useState("");
   const {
     mutate: createAsset,

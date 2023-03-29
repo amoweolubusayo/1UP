@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { ConnectButton ,Theme} from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
+import Image from "next/image"
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -18,15 +19,15 @@ const Header = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
               <a>
-            
-                {/* <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                /> */} 
-               <span className="hidden sm:block cursor-pointer font-poppins-bold text-xl">
-               📚 Primero3
-                    </span>
+              <Image
+                  src="https://imgur.com/1GHd7aI.png"
+                  layout="fill"
+                  objectFit="contain" objectPosition='10% 50%'
+                  alt="logo"
+                />  
+                {/* <span className="hidden sm:block cursor-pointer font-poppins-bold text-xl">
+               Primero3
+                    </span> */}
                     
               </a>
             </Link>
