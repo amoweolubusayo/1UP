@@ -122,7 +122,7 @@ const Header = () => {
     //     <div className="flex items-center">
     //       <Link href="/">
     //         <a>
-    //           <img
+    //           <img 
     //             src="https://i.imgur.com/1GHd7aI.png"
     //             alt="Primero Logo"
     //             className="h-8 lg:h-10"
@@ -164,7 +164,7 @@ const Header = () => {
     //     </div>
     //   </div>
     // </header>
-    <header className="bg-white text-gray-800 sticky top-0 z-50 grid grid-cols-3 py-5 px-5 md:px-10">
+    <header className="bg-white text-gray-800 sticky top-0 z-50 grid grid-cols-3 py-5 px-5 md:px-10 shadow-md">
       {/**left */}
       <div className="relative flex-items center h-10 cursor-pointer my-auto">
         <Link href="/">
