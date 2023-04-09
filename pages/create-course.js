@@ -187,8 +187,11 @@ export default function CreateCourse({ createStatus, createError }) {
   );
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Header />
+    <>
+    
+    <Header />
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-2">
+      
       <section className="relative py-12">
         {loading && (
           <Alert
@@ -403,5 +406,6 @@ export default function CreateCourse({ createStatus, createError }) {
         )}
       </section>
     </div>
+    </>
   );
 }
