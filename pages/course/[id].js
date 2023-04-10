@@ -143,8 +143,8 @@ function Course({ course, related }) {
   }, [hasPurchasedCourse()]);
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="relative py-12">
           <h1 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl mb-6 lg:mb-12">
             {course.courseTitle}

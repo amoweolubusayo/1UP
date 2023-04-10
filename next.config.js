@@ -9,14 +9,14 @@ module.exports = {
       "i.imgur.com",
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "https://livepeer.studio/api/:path*",
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/api/:path*",
+  //       destination: "https://livepeer.studio/api/:path*",
+  //     },
+  //   ];
+  // },
   async headers() {
     return [
       {
