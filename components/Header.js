@@ -181,7 +181,7 @@ const Header = () => {
         </Link>
       </div>
       {/**middle*/}
-      <div className="hidden lg:flex flex-grow">
+      {/* <div className="hidden lg:flex flex-grow"> */}
         {/* <input
           type="text"
           placeholder="Search courses"
@@ -190,7 +190,7 @@ const Header = () => {
         {/* <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
           Search
         </button> */}
-      </div>
+      {/* </div> */}
       {/**MID-RIGHT*/}
       <div className="hidden ml-6 font-medium text-lg lg:flex">
         <Link href="/">
@@ -205,10 +205,11 @@ const Header = () => {
             Be an Instructor{" "}
           </a>
         </Link>
+        </div>
         <div className="flex items-center ml-4">
           <ConnectButton label="Log In" className="bg-olive-500" />
         </div>
-      </div>
+      
     </header>
   );
 };
