@@ -182,12 +182,12 @@ const Header = () => {
       </div>
       {/**middle*/}
       {/* <div className="hidden lg:flex flex-grow"> */}
-        {/* <input
+      {/* <input
           type="text"
           placeholder="Search courses"
           className="w-96 py-2 px-4 text-sm bg-gray-100 rounded-l-full border border-gray-700 focus:outline-none focus:border-blue-500"
         /> */}
-        {/* <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
+      {/* <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
           Search
         </button> */}
       {/* </div> */}
@@ -205,11 +205,13 @@ const Header = () => {
             Be an Instructor{" "}
           </a>
         </Link>
-        </div>
-        <div className="flex items-center ml-4">
-          <ConnectButton label="Log In" className="bg-olive-500" />
-        </div>
-      
+        <Link href={`/mycourses/${account.address}`}>
+          <a className="px-3 py-2 hover:bg-white rounded-md">My Courses</a>
+        </Link>
+      </div>
+      <div className="flex items-center ml-4">
+        <ConnectButton label="Log In" className="bg-olive-500" />
+      </div>
     </header>
   );
 };

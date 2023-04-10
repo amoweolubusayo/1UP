@@ -1,14 +1,19 @@
 let randomVideos = [
-  "https://bafybeid226zkwaggve7zzbnyo6jveiqdqxvatcppcjrjvkyvnoefrxvu4m.ipfs.nftstorage.link",
-  "https://bafybeigz2luetrn2wjomdph2eksd6lixiimkxp5joyz3gmzyqigcgueo2y.ipfs.nftstorage.link",
-  "https://bafybeiai3lx2v67nz5nyavs27qrpkx5q7wqplwgiq63zvgq6cgqy7ndga4.ipfs.nftstorage.link",
+  "f01ba6138lz6t3sj",
+  "2b1dky4foaw3dppl",
+  "8ec4t4oo5s6fbgyg",
+  "2030de7o9s74y5m1",
+  "bcf6z2ek2qblgjrr",
+  "3695loircs9bh4u8",
 ];
 
+let lastVideoIndex = -1;
 function randomizeVideo() {
-  let randomNum = Math.floor(Math.random() * randomVideos.length);
-  console.log("the random num", randomNum);
-  console.log("the image returned", randomVideos[randomNum]);
-  return randomVideos[randomNum];
+  let videoIndex = (lastVideoIndex + 1) % randomVideos.length; // get next index
+  console.log("the video index", videoIndex);
+  console.log("the video returned", randomVideos[videoIndex]);
+  lastVideoIndex = videoIndex; // store last index for next call
+  return randomVideos[videoIndex];
 }
 
 export default randomizeVideo;

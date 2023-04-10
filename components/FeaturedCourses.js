@@ -148,7 +148,7 @@ const FeaturedCourses = () => {
                 >
                   <Player
                     title={course.courseTitle}
-                    src={randomizeVideo()}
+                    playbackId={randomizeVideo()}
                     className="w-full h-full object-scale-down"
                     priority
                   />
