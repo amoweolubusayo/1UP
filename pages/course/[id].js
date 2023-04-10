@@ -58,7 +58,6 @@ const RELATED_COURSES = gql`
   }
 `;
 
-
 function Course({ course, related }) {
   const account = useAccount();
   const [success, setSuccess] = useState(null);
@@ -250,6 +249,7 @@ function Course({ course, related }) {
                 src={randomizeVideo()}
                 alt={src}
                 poster={<PosterImage />}
+                priority
               />
             </div>
           </div>
