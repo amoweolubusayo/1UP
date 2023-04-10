@@ -11,61 +11,6 @@ import { Player, useAssetMetrics, useCreateAsset } from "@livepeer/react";
 import randomizeVideo from "../utils/randomizeVideo";
 import blenderPoster from "../public/images/people.webp";
 
-// const ipfsGateway = "https://ipfs.io/ipfs/";
-
-// async function getVideosByTopic(topic) {
-//   console.log(await topic);
-//   console.log("got here");
-//   const response = await fetch(
-//     `https://cors-anywhere.herokuapp.com/https://ipfs-search.com/api/v1/search?query=${topic}`,
-//     { headers: { "X-Requested-With": "XMLHttpRequest" } }
-//   );
-//   console.log("response", response);
-//   const data = await response.json();
-//   const videos = data.results.map((result) => ({ hash: result.hash }));
-//   const randomIndex = Math.floor(Math.random() * videos.length);
-//   const randomVideo = videos[randomIndex];
-//   const videoUrl = ipfsGateway + randomVideo.hash;
-//   return videoUrl;
-// }
-
-const API_TOKEN = "bd350c21-1e08-4528-8074-c8f4b8339ca2";
-
-async function getRandomVideo(topic) {
-  const videos = await getVideosByTopic(topic);
-  const randomIndex = Math.floor(Math.random() * videos.length);
-  const randomVideo = videos[randomIndex];
-  const videoUrl = randomVideo.playbackId;
-  return videoUrl;
-}
-
-// async function getVideosByTopic(topic) {
-//   const response = await fetch(`https://livepeer.studio/api/asset`, {
-//     headers: {
-//       Authorization: `Bearer ${API_TOKEN}`,
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   const data = await response.json();
-//   console.log("Response", response);
-//   const videos = data.map((result) => ({ playbackId: result.playbackId }));
-//   return videos;
-// }
-
-// async function fetchVideos() {
-//   const token = "bd350c21-1e08-4528-8074-c8f4b8339ca2";
-//   const response = await fetch("https://livepeer.studio/api/asset", {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   });
-//   //const data = await response.json();
-//   console.log(await response.json());
-//   // const playbackIds = data.map((video) => video.playbackId);
-//   // return playbackIds;
-// }
-
 const PosterImage = () => {
   return (
     <Image
