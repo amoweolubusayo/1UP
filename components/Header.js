@@ -1,79 +1,3 @@
-// import { Fragment } from "react";
-// import Link from "next/link";
-// import { ConnectButton, Theme } from "@rainbow-me/rainbowkit";
-// import { useAccount } from "wagmi";
-// import Image from "next/image";
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
-
-// const Header = () => {
-//   const account = useAccount();
-
-//   return (
-//     <header className="bg-orange-400 text-gray-800 sticky top-0 z-50 grid grid-cols-3 py-5 px-5 md:px-10 shadow-md">
-//       {/**left */}
-//       <div className="relative flex-items center h-10 cursor-pointer my-auto">
-//         <Link href="/">
-//           <a>
-//             <Image
-//               src="https://i.imgur.com/LugD1DQ.png"
-//               objectFit="contain"
-//               objectPosition="left"
-//               width={80}
-//               height={50}
-//               alt="logo"
-//             />
-//           </a>
-//         </Link>
-//       </div>
-//       {/**middle*/}
-//       {/* <div className="hidden lg:flex flex-grow"> */}
-//       {/* <input
-//           type="text"
-//           placeholder="Search courses"
-//           className="w-96 py-2 px-4 text-sm bg-gray-100 rounded-l-full border border-gray-700 focus:outline-none focus:border-blue-500"
-//         /> */}
-//       {/* <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
-//           Search
-//         </button> */}
-//       {/* </div> */}
-//       {/**MID-RIGHT*/}
-//       <div className="hidden ml-6 font-medium text-lg lg:flex">
-//         <Link href="/">
-//           <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">
-//             Home
-//           </a>
-//         </Link>
-//         <Link href="/all-courses">
-//           <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">
-//             Courses
-//           </a>
-//         </Link>
-//         <Link href="/create-course">
-//           <a
-//             className="px-3 py-2 hover:bg-orange-400 rounded-md text-white"
-//             target="_blank"
-//           >
-//             {" "}
-//             Be an Instructor{" "}
-//           </a>
-//         </Link>
-//         <Link href={`/mycourses/${account.address}`}>
-//           <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">
-//             My Courses
-//           </a>
-//         </Link>
-//       </div>
-//       <div className="flex items-center ml-4">
-//         <ConnectButton label="Log In" className="bg-olive-500" />
-//       </div>
-//     </header>
-//   );
-// };
-// export default Header;
-
 import { Fragment } from "react";
 import Link from "next/link";
 import { ConnectButton, Theme } from "@rainbow-me/rainbowkit";
@@ -152,6 +76,33 @@ const Header = () => {
       <div className="flex items-center ml-4">
         <ConnectButton label="Log In" className="bg-olive-500" />
       </div>
+      {/**Mobile menu */}
+  <div className="absolute w-full md:hidden top-16 left-0 bg-orange-400 text-gray-800 py-2 px-3 rounded-b-md">
+    <nav className="flex flex-col">
+      <Link href="/">
+        <a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
+          Home
+        </a>
+      </Link>
+      <Link href="/all-courses">
+<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
+Courses
+</a>
+</Link>
+<Link href="/create-course">
+<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
+Be an Instructor
+</a>
+</Link>
+<Link href={`/mycourses/${account.address}`}>
+<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
+My Courses
+</a>
+</Link>
+<ConnectButton label="Log In" className="bg-olive-500 my-2" />
+</nav>
+
+  </div>
     </header>
   );
 };
