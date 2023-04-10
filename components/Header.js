@@ -164,13 +164,13 @@ const Header = () => {
     //     </div>
     //   </div>
     // </header>
-    <header className="bg-white text-gray-800 sticky top-0 z-50 grid grid-cols-3 py-5 px-5 md:px-10 shadow-md">
+    <header className="bg-orange-400 text-gray-800 sticky top-0 z-50 grid grid-cols-3 py-5 px-5 md:px-10 shadow-md">
       {/**left */}
       <div className="relative flex-items center h-10 cursor-pointer my-auto">
         <Link href="/">
           <a>
             <Image
-              src="https://i.imgur.com/1GHd7aI.png"
+              src="https://i.imgur.com/LugD1DQ.png"
               objectFit="contain"
               objectPosition="left"
               width={80}
@@ -194,19 +194,26 @@ const Header = () => {
       {/**MID-RIGHT*/}
       <div className="hidden ml-6 font-medium text-lg lg:flex">
         <Link href="/">
-          <a className="px-3 py-2 hover:bg-white rounded-md">Home</a>
+          <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">Home</a>
         </Link>
         <Link href="/all-courses">
-          <a className="px-3 py-2 hover:bg-white rounded-md">Courses</a>
+          <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">
+            Courses
+          </a>
         </Link>
         <Link href="/create-course">
-          <a className="px-3 py-2 hover:bg-white rounded-md" target="_blank">
+          <a
+            className="px-3 py-2 hover:bg-orange-400 rounded-md text-white"
+            target="_blank"
+          >
             {" "}
             Be an Instructor{" "}
           </a>
         </Link>
         <Link href={`/mycourses/${account.address}`}>
-          <a className="px-3 py-2 hover:bg-white rounded-md">My Courses</a>
+          <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white">
+            My Courses
+          </a>
         </Link>
       </div>
       <div className="flex items-center ml-4">

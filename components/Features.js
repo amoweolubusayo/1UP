@@ -46,14 +46,14 @@ const Features = () => {
               revenue streams in crypto for the content you created.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-20">
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {features.map((feature) => (
                   <div key={feature.name} className="pt-6">
                     <div className="flow-root rounded-lg bg-gray-50 px-6 pb-8">
                       <div className="-mt-2">
                         <div>
-                          <div className="inline-flex items-center justify-center rounded-md bg-orange-500 p-3 text-white shadow-lg">
+                          <div className="inline-flex items-center justify-center rounded-md bg-orange-400 p-3 text-white shadow-lg">
                             <feature.icon
                               className="h-8 w-8"
                               aria-hidden="true"
@@ -63,7 +63,7 @@ const Features = () => {
                         <h3 className="mt-8 text-lg font-medium tracking-tight text-gray-900">
                           {feature.name}
                         </h3>
-                        <p className="mt-5 text-base text-gray-500">
+                        <p className="mt-5 text-base text-gray-400">
                           {feature.description}
                         </p>
                       </div>
@@ -71,7 +71,7 @@ const Features = () => {
                   </div>
                 ))}
               </div>
-              <div className="grid pt-10">
+              <div className="grid pt-20">
                 <div className="relative bg-gray-0">
                   <div className="relative h-56 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2">
                     <img
@@ -94,7 +94,7 @@ const Features = () => {
                       <div className="mt-8">
                         <div className="inline-flex rounded-md shadow">
                           <Link href="/all-courses">
-                            <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent bg-orange-500 text-base font-medium rounded-md text-white bg-yellow">
+                            <a className="inline-flex items-center justify-center px-5 py-3 border border-transparent bg-orange-400 text-base font-medium rounded-md text-white bg-yellow">
                               Take a Course
                             </a>
                           </Link>

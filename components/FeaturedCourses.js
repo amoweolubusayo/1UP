@@ -47,8 +47,8 @@ const FeaturedCourses = () => {
         <div className="flex items-center justify-center mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "" ? "bg-orange-500" : "bg-orange-400"
-            } inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "" ? "bg-blue-500" : "bg-blue-400"
+            } inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("")}
           >
             All
@@ -56,33 +56,33 @@ const FeaturedCourses = () => {
           <a
             className={`whitespace-nowrap ${
               selectedCategory === "Solidity"
-                ? "bg-orange-500"
-                : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+                ? "bg-blue-500"
+                : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Solidity")}
           >
             Solidity
           </a>
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "Rust" ? "bg-orange-500" : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "Rust" ? "bg-blue-500" : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Rust")}
           >
             Rust
           </a>
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "Hardhat" ? "bg-orange-500" : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "Hardhat" ? "bg-blue-500" : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Hardhat")}
           >
             Hardhat
           </a>
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "Lens" ? "bg-orange-500" : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "Lens" ? "bg-blue-500" : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Lens")}
           >
             Lens
@@ -90,9 +90,9 @@ const FeaturedCourses = () => {
           <a
             className={`whitespace-nowrap ${
               selectedCategory === "Subgraphs"
-                ? "bg-orange-500"
-                : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+                ? "bg-blue-500"
+                : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Subgraphs")}
           >
             The Graph
@@ -100,25 +100,25 @@ const FeaturedCourses = () => {
           <a
             className={`whitespace-nowrap ${
               selectedCategory === "Livepeer"
-                ? "bg-orange-500"
-                : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+                ? "bg-blue-500"
+                : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("Livepeer")}
           >
             Livepeer
           </a>
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "ENS" ? "bg-orange-500" : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "ENS" ? "bg-blue-500" : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("ENS")}
           >
             ENS
           </a>
           <a
             className={`whitespace-nowrap ${
-              selectedCategory === "NFT" ? "bg-orange-500" : "bg-orange-400"
-            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-orange-700 hover:border-transparent`}
+              selectedCategory === "NFT" ? "bg-blue-500" : "bg-blue-400"
+            } ml-4 inline-block rounded-full py-2 px-8 text-center font-medium text-white hover:text-white hover:bg-blue-700 hover:border-transparent`}
             onClick={() => setSelectedCategory("NFT")}
           >
             NFTs
@@ -126,9 +126,7 @@ const FeaturedCourses = () => {
         </div>
       </header>
 
-      <div className="w-14 bg-orange-500 h-full fixed left-0 top-0 overflow-y-auto">
-    
-      </div>
+      <div className="w-14 bg-blue-400 h-full fixed left-0 top-0 overflow-y-auto"></div>
 
       <div className="bg-white">
         {/* <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"> */}
