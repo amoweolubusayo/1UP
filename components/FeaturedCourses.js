@@ -126,15 +126,14 @@ const FeaturedCourses = () => {
         </div>
       </header>
 
-      <div className="bg-white">
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-3">
-              All Courses
-            </h2>
-          </div>
+      <div className="w-14 bg-orange-500 h-full fixed left-0 top-0 overflow-y-auto">
+    
+      </div>
 
-          <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+      <div className="bg-white">
+        {/* <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"> */}
+        <div className="w-full h-full p-16 sm:p-24">
+          <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-5 xl:gap-x-8">
             {data.courses
               .filter((course) =>
                 selectedCategory
@@ -142,10 +141,7 @@ const FeaturedCourses = () => {
                   : true
               )
               .map((course) => (
-                <div
-                  key={course.id}
-                  className="group relative overflow-hidden shadow-lg rounded-md bg-white"
-                >
+                <div key={course.id}>
                   <Player
                     title={course.courseTitle}
                     playbackId={randomizeVideo()}
@@ -153,27 +149,27 @@ const FeaturedCourses = () => {
                     priority
                   />
 
-                  <div className="px-4 py-2">
-                    <h3 className="text-lg font-medium text-gray-900">
-                      <Link href={`/course/${course.id}`}>
-                        <a className="hover:text-indigo-500">
-                          <span className="sr-only">
-                            View course details for{" "}
-                          </span>
-                          {course.courseTitle}
-                        </a>
-                      </Link>
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-500">
-                      {course.instructorName}
-                    </p>
-                    <div className="mt-2 flex items-center text-sm text-gray-500">
-                      <span className="flex-shrink-0 mr-1.5"></span>
-                      <span className="mx-2">👍</span>
-                      <span>1 vote</span>
-                    </div>
+                  {/* <div className="px-4 py-2"> */}
+                  <h3 className="text-lg font-medium text-gray-900">
+                    <Link href={`/course/${course.id}`}>
+                      <a className="hover:text-indigo-500">
+                        <span className="sr-only">
+                          View course details for{" "}
+                        </span>
+                        {course.courseTitle}
+                      </a>
+                    </Link>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {course.instructorName}
+                  </p>
+                  <div className="mt-2 flex items-center text-sm text-gray-500">
+                    <span className="flex-shrink-0 mr-1.5"></span>
+                    {/* <span className="mx-2">👍</span> */}
+                    <span>2 votes . 1 like</span>
                   </div>
                 </div>
+                // </div>
               ))}
 
             {/* {data.courses.map((course) => (
