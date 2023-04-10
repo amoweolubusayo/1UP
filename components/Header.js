@@ -122,7 +122,7 @@ const Header = () => {
     //     <div className="flex items-center">
     //       <Link href="/">
     //         <a>
-    //           <img 
+    //           <img
     //             src="https://i.imgur.com/1GHd7aI.png"
     //             alt="Primero Logo"
     //             className="h-8 lg:h-10"
@@ -168,30 +168,28 @@ const Header = () => {
       {/**left */}
       <div className="relative flex-items center h-10 cursor-pointer my-auto">
         <Link href="/">
-        <a>
-        <Image
-        src ="https://i.imgur.com/1GHd7aI.png"
-        objectFit="contain"
-        objectPosition="left"
-        width={80}
-        height={50}
-        alt="logo"
-        />
-        </a>
+          <a>
+            <Image
+              src="https://i.imgur.com/1GHd7aI.png"
+              objectFit="contain"
+              objectPosition="left"
+              width={80}
+              height={50}
+              alt="logo"
+            />
+          </a>
         </Link>
-       
-      
       </div>
       {/**middle*/}
       <div className="hidden lg:flex flex-grow">
-        <input
+        {/* <input
           type="text"
           placeholder="Search courses"
           className="w-96 py-2 px-4 text-sm bg-gray-100 rounded-l-full border border-gray-700 focus:outline-none focus:border-blue-500"
-        />
-        <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
+        /> */}
+        {/* <button className="bg-orange-500 hover:bg-orange-400 py-2 px-4 rounded-r-full text-white">
           Search
-        </button>
+        </button> */}
       </div>
       {/**MID-RIGHT*/}
       <div className="hidden ml-6 font-medium text-lg lg:flex">
@@ -202,21 +200,15 @@ const Header = () => {
           <a className="px-3 py-2 hover:bg-white rounded-md">Courses</a>
         </Link>
         <Link href="/create-course">
-          <a
-            className="px-3 py-2 hover:bg-white rounded-md"
-            target="_blank"
-          >
+          <a className="px-3 py-2 hover:bg-white rounded-md" target="_blank">
             {" "}
             Be an Instructor{" "}
           </a>
         </Link>
         <div className="flex items-center ml-4">
-             <ConnectButton label="Log In" className="bg-olive-500" />
-          </div>
+          <ConnectButton label="Log In" className="bg-olive-500" />
+        </div>
       </div>
-     
-
-     
     </header>
   );
 };
