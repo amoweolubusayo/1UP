@@ -68,41 +68,14 @@ const Header = () => {
           </Link>
           <Link href={`/mycourses/${account.address}`}>
             <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white text-sm">
-            My Courses
-          </a>
-        </Link>
+              My Courses
+            </a>
+          </Link>
         </nav>
       </div>
       <div className="flex items-center ml-4">
         <ConnectButton label="Log In" className="bg-olive-500" />
       </div>
-      {/**Mobile menu */}
-  <div className="absolute w-full md:hidden top-16 left-0 bg-orange-400 text-gray-800 py-2 px-3 rounded-b-md">
-    <nav className="flex flex-col">
-      <Link href="/">
-        <a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
-          Home
-        </a>
-      </Link>
-      <Link href="/all-courses">
-<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
-Courses
-</a>
-</Link>
-<Link href="/create-course">
-<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
-Be an Instructor
-</a>
-</Link>
-<Link href={`/mycourses/${account.address}`}>
-<a className="my-2 hover:bg-orange-500 rounded-md text-white text-sm block">
-My Courses
-</a>
-</Link>
-<ConnectButton label="Log In" className="bg-olive-500 my-2" />
-</nav>
-
-  </div>
     </header>
   );
 };
