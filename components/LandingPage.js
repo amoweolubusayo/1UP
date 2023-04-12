@@ -53,11 +53,11 @@ export default function LandingPage() {
                 >
                   <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                     <div className="flex items-center space-x-6 lg:space-x-8">
-                    <img
-                      className="w-full h-full object-contain"
-                      src="https://img.freepik.com/free-photo/studio-portrait-collage-diverse-people_53876-137629.jpg?w=996"
-                      alt=""
-                    />
+                      <img
+                        className="w-full h-full object-contain"
+                        src="https://img.freepik.com/free-photo/studio-portrait-collage-diverse-people_53876-137629.jpg?w=996"
+                        alt=""
+                      />
                       {/* <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                        <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                           <img
@@ -75,7 +75,7 @@ export default function LandingPage() {
                         </div>
                      
                       </div> */}
-                       {/* <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                      {/* <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                         <div className="h-64 w-44 overflow-hidden rounded-lg">
                           <img
                             src="data:image/jpeg;base64,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"
@@ -112,12 +112,12 @@ export default function LandingPage() {
                 </div>
                 <div className="flex items-center space-x-6 lg:space-x-8">
                   <Link href="/all-courses">
-                    <a className="inline-block rounded-md border border-transparent bg-orange-400 py-3 px-8 text-center font-medium text-white hover:bg-orange-700">
+                    <a className="inline-block rounded-md border border-transparent bg-orange-400 py-3 px-8 text-center font-medium text-white hover:bg-orange-400">
                       View Courses
                     </a>
                   </Link>
                   <Link href="https://primero-community.vercel.app/">
-                    <a className="inline-block rounded-md border border-transparent bg-orange-400 py-3 px-8 text-center font-medium text-white hover:bg-orange-700">
+                    <a className="inline-block rounded-md border border-transparent bg-orange-400 py-3 px-8 text-center font-medium text-white hover:bg-orange-400">
                       Community
                     </a>
                   </Link>
