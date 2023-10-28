@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import Link from "next/link";
 import {
   UploadIcon,
@@ -25,19 +25,92 @@ const features = [
     icon: UserGroupIcon,
   },
 ];
+
+const options = [
+  { value: "Jamie Oliver", label: "Jamie Oliver" },
+  { value: "Obama", label: "Obama" },
+  { value: "Serana Williams", label: "Serena Williams" },
+  { value: "Paris Hilton", label: "Paris Hilton" },
+  { value: "Ronaldo", label: "Ronaldo" },
+];
+
 const Features = () => {
+  const [selectedValue, setSelectedValue] = useState("");
+  const [ans, setAns] = useState("");
+  const handleSelection = (e) => {
+    const value = e.target.value;
+    setSelectedValue(value);
+    console.log("Selected value:", value);
+    main(value);
+  };
+
+  const main = async (value) => {
+    try {
+      const response = await fetch("/api/flockModel", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: value }),
+      });
+
+      const data = await response.json();
+      console.log(data.ans);
+      return data.response;
+      // if (response.status !== 200) {
+      //   throw (
+      //     data.error ||
+      //     new Error(`Request failed with status ${response.status}`)
+      //   );
+      // }
+      // setAffirmation(data.affirmation);
+      // setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <div className="relative bg-gray-100 sm:pt-24 lg:pt-32">
         <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
           <div>
             <h2 className="font-bold tracking-wider text-900 uppercase">
-              EXPLORE OUR AI
+              EXPLORE OUR AI - Powered by Flock
             </h2>
             <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500"></p>
             <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500"></p>
 
-            <div className="mt-20 space-y-6">
+            <select onChange={handleSelection} className="rounded-md">
+              <option value="">-- Search --</option>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+
+            <label htmlFor="text-input"></label>
+
+            <input
+              type="text"
+              id="text-input"
+              name="text-input"
+              value={`${selectedValue} is typing...`}
+              className="mt-2 p-2 border rounded-md w-full"
+            />
+
+            <label htmlFor="text-area">Chat</label>
+
+            <textarea
+              id="text-area"
+              name="text-area"
+              rows="4"
+              cols="50"
+              className="mt-1 p-2 border rounded-md w-full"
+            ></textarea>
+
+            {/* <div className="mt-20 space-y-6">
               <div className="flex justify-between">
                 <div className="w-1/2 relative">
                   <input
@@ -66,31 +139,7 @@ const Features = () => {
                   </button>
                 </div>
               </div>
-            </div>
-
-            {/* <div className="mt-20">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <div key={feature.name} className="pt-6">
-              <div className="flow-root rounded-lg bg-gray-50 px-6 pb-8">
-                <div className="-mt-2">
-                  <div>
-                    <div className="inline-flex items-center justify-center rounded-md bg-orange-400 p-3 text-white shadow-lg">
-                      <feature.icon className="h-8 w-8" aria-hidden="true" />
-                    </div>
-                  </div>
-                  <h3 className="mt-8 text-lg font-medium tracking-tight text-gray-900">
-                    {feature.name}
-                  </h3>
-                  <p className="mt-5 text-base text-gray-400">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+            </div> */}
           </div>
         </div>
       </div>
