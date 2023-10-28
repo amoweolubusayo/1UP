@@ -37,27 +37,14 @@ export default function LandingPage() {
                 </span>
               </h1>
               <p className="mt-4 text-xl text-white-500 font-mono-bold">
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-             loREUM ISPUM LOREM ISPUM
-
-             
+                loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM
+                LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM
+                loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM
+                LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM
+                loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM
+                LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM
+                loREUM ISPUM LOREM ISPUM loREUM ISPUM LOREM ISPUM loREUM ISPUM
+                LOREM ISPUM loREUM ISPUM LOREM ISPUM
               </p>
             </div>
             <div>
