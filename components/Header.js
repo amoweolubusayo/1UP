@@ -153,7 +153,7 @@ const Header = () => {
             </button>
        
             <span className="ml-2 text-sm text-black">{address}</span>
-            <span className="ml-2 text-sm text-black">Balance {balance}</span>
+            <span className="ml-2 text-sm text-black">Your wallet Balance is : {balance} TZ </span>
           </div>
         )}
         {/* <ConnectButton label="Log In" className="bg-olive-500" /> */}
