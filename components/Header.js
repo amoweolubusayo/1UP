@@ -7,13 +7,9 @@ import { BeaconWallet } from "@taquito/beacon-wallet";
 import { NetworkType } from "@airgap/beacon-sdk";
 import { TezosToolkit } from "@taquito/taquito";
 
-const rpcUrl = "https://ghostnet.ecadinfra.com";
-const Tezos = new TezosToolkit(rpcUrl);
-const network = NetworkType.GHOSTNET;
-
 let wallet;
 let address;
-let balance;
+
 const connectWallet = async () => {
   const newWallet = new BeaconWallet({
     name: "Simple dApp tutorial",
@@ -32,10 +28,17 @@ function classNames(...classes) {
 }
 
 const Header = () => {
-  const address = "";
+  const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [walletConnected, setWalletConnected] = useState(false);
+  const [balance, setWalletBalance] = useState("");
   const [connectedAccount, setConnectedAccount] = useState("");
+
+  const rpcUrl = "https://ghostnet.ecadinfra.com";
+  const Tezos = new TezosToolkit(rpcUrl);
+  console.log("Tezos is", Tezos);
+  const network = NetworkType.GHOSTNET;
+
   const handleConnectWallet = async () => {
     try {
       // Check if Temple wallet object exists
@@ -55,16 +58,20 @@ const Header = () => {
       });
 
       address = await newWallet.getPKH();
-      getWalletBalance(address);
+      const balanceMutez = await Tezos.tz.getBalance(address);
+      balance = balanceMutez.div(1000000).toFormat(2);
+
+      console.log("balance is", balance);
+      console.log("address is", address);
       //wallet = newWallet;
       //await window.temple.AddEstablish("Temple");
 
       // //Get Account details
       // const account = await window.adena.GetAccount();
       // console.log(account.address);
-      setConnectedAccount(address);
-      // Set the wallet connection status
       setWalletConnected(true);
+      setConnectedAccount(address);
+      setWalletBalance(balance);
     } catch (error) {
       console.log(error);
       setMessage("Error: Unable to connect wallet.");
@@ -142,9 +149,11 @@ const Header = () => {
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
               disabled
             >
-              Connected
+              Connected 
             </button>
-            <span className="ml-2 text-sm text-white">{connectedAccount}</span>
+       
+            <span className="ml-2 text-sm text-black">{address}</span>
+            <span className="ml-2 text-sm text-black">Balance {balance}</span>
           </div>
         )}
         {/* <ConnectButton label="Log In" className="bg-olive-500" /> */}
