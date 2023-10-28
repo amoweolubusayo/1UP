@@ -39,7 +39,7 @@ const Header = () => {
   };
 
   return (
-    <header className="text-gray-800 sticky top-0 z-50 py-5 px-5 md:px-10 shadow-md flex flex-wrap items-center justify-between">
+    <header className="text-gray-800 sticky top-0 z-50 py-5 px-5 md:px-10 shadow-md flex flex-wrap items-center justify-between bg-white">
       {/**left */}
       <div className="relative flex-items center h-10 cursor-pointer my-auto text-center md:text-left">
         <Link href="">
@@ -73,7 +73,7 @@ const Header = () => {
           </svg>
         </button>
       </div>
-      <div className="hidden md:block ml-6 font-medium text-lg">
+      <div className="hidden md:block ml-6 font-medium text-lg bg-white">
         <nav className="flex flex-col md:flex-row md:ml-auto bg-white">
           <Link href="/">
             <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm">
