@@ -74,10 +74,10 @@ const Header = () => {
         </button>
       </div>
       <div className="hidden md:block ml-6 font-medium text-lg">
-        <nav className="flex flex-col md:flex-row md:ml-auto">
+        <nav className="flex flex-col md:flex-row md:ml-auto bg-white">
           <Link href="/">
             <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm">
-              Social
+              Social Network
             </a>
           </Link>
           <Link href="/all-courses">
@@ -90,7 +90,7 @@ const Header = () => {
               className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm"
               target="_blank"
             >
-              Flexr
+              FLEXR
             </a>
           </Link>
         </nav>
