@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Link from "next/link";
 import { ConnectButton, Theme } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
@@ -10,6 +10,33 @@ function classNames(...classes) {
 
 const Header = () => {
   const account = useAccount();
+  const [walletConnected, setWalletConnected] = useState(false);
+  const [connectedAccount, setConnectedAccount] = useState("");
+  const handleConnectWallet = async () => {
+    try {
+      // Check if Adena wallet object exists
+      // if (!window.adena) {
+        //open adena.app in a new tab if the adena object is not found
+        window.open(
+          "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
+          "_blank"
+        );
+      //}
+
+      // Connect to Adena wallet
+      // await window.adena.AddEstablish("Adena");
+
+      // //Get Account details
+      // const account = await window.adena.GetAccount();
+      // console.log(account.address);
+      setConnectedAccount(account.address);
+      // Set the wallet connection status
+      setWalletConnected(true);
+    } catch (error) {
+      console.log(error);
+      setMessage("Error: Unable to connect wallet.");
+    }
+  };
 
   return (
     <header className="bg-orange-400 text-gray-800 sticky top-0 z-50 py-5 px-5 md:px-10 shadow-md flex flex-wrap items-center justify-between">
@@ -74,7 +101,25 @@ const Header = () => {
         </nav>
       </div>
       <div className="flex items-center ml-4">
-        <ConnectButton label="Log In" className="bg-olive-500" />
+        {!walletConnected ? (
+          <button
+            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+            onClick={handleConnectWallet}
+          >
+            Connect to Tezos Wallet
+          </button>
+        ) : (
+          <div className="flex items-center">
+            <button
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+              disabled
+            >
+              Connected
+            </button>
+            <span className="ml-2 text-sm text-white">{connectedAccount}</span>
+          </div>
+        )}
+        {/* <ConnectButton label="Log In" className="bg-olive-500" /> */}
       </div>
     </header>
   );
