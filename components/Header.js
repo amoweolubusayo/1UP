@@ -16,11 +16,11 @@ const Header = () => {
     try {
       // Check if Adena wallet object exists
       // if (!window.adena) {
-        //open adena.app in a new tab if the adena object is not found
-        window.open(
-          "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
-          "_blank"
-        );
+      //open adena.app in a new tab if the adena object is not found
+      window.open(
+        "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
+        "_blank"
+      );
       //}
 
       // Connect to Adena wallet
@@ -39,13 +39,13 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-orange-400 text-gray-800 sticky top-0 z-50 py-5 px-5 md:px-10 shadow-md flex flex-wrap items-center justify-between">
+    <header className="text-gray-800 sticky top-0 z-50 py-5 px-5 md:px-10 shadow-md flex flex-wrap items-center justify-between">
       {/**left */}
       <div className="relative flex-items center h-10 cursor-pointer my-auto text-center md:text-left">
-        <Link href="/">
+        <Link href="">
           <a>
             <Image
-              src="https://i.imgur.com/LugD1DQ.png"
+              src="/images/1UPLOGO.png"
               objectFit="contain"
               objectPosition="left"
               width={80}
@@ -76,21 +76,21 @@ const Header = () => {
       <div className="hidden md:block ml-6 font-medium text-lg">
         <nav className="flex flex-col md:flex-row md:ml-auto">
           <Link href="/">
-            <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white text-sm">
-              Home
+            <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm">
+              Social
             </a>
           </Link>
           <Link href="/all-courses">
-            <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white text-sm">
-              Courses
+            <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm">
+              Mixed
             </a>
           </Link>
           <Link href="/create-course">
             <a
-              className="px-3 py-2 hover:bg-orange-400 rounded-md text-white text-sm"
+              className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm"
               target="_blank"
             >
-              Be an Instructor
+              Flexr
             </a>
           </Link>
           <Link href={`/mycourses/${account.address}`}>
