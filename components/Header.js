@@ -93,11 +93,6 @@ const Header = () => {
               Flexr
             </a>
           </Link>
-          <Link href={`/mycourses/${account.address}`}>
-            <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-white text-sm">
-              My Courses
-            </a>
-          </Link>
         </nav>
       </div>
       <div className="flex items-center ml-4">
