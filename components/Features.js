@@ -28,53 +28,47 @@ const features = [
 const Features = () => {
   return (
     <div>
-      
+      <div className="relative bg-gray-100 sm:pt-24 lg:pt-32">
+        <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
+          <div>
+            <h2 className="font-bold tracking-wider text-900 uppercase">
+              EXPLORE OUR AI
+            </h2>
+            <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500"></p>
+            <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500"></p>
 
-<div className="relative bg-gray-100 sm:pt-24 lg:pt-32">
-  <div className="mx-auto max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
-    <div>
-      <h2 className="font-bold tracking-wider text-900 uppercase">
-        EXPLORE OUR AI
-      </h2>
-      <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-       
-      </p>
-      <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-       
-      </p>
+            <div className="mt-20 space-y-6">
+              <div className="flex justify-between">
+                <div className="w-1/2 relative">
+                  <input
+                    type="text"
+                    placeholder="&#xf044; Search"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
+                  />
+                </div>
+                <div className="w-1/2 flex justify-end">
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Go
+                  </button>
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div className="w-1/2 relative">
+                  <input
+                    type="text"
+                    placeholder="&#xf002; Publish new post"
+                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
+                  />
+                </div>
+                <div className="w-1/2 flex justify-end">
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Go
+                  </button>
+                </div>
+              </div>
+            </div>
 
-      <div className="mt-20 space-y-6">
-        <div className="flex justify-between">
-          <div className="w-1/2 relative">
-            <input
-              type="text"
-              placeholder="&#xf044; Search"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
-            />
-          </div>
-          <div className="w-1/2 flex justify-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Go
-            </button>
-          </div>
-        </div>
-        <div className="flex justify-between">
-          <div className="w-1/2 relative">
-            <input
-              type="text"
-              placeholder="&#xf002; Publish new post"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none"
-            />
-          </div>
-          <div className="w-1/2 flex justify-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Go
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-20">
+            {/* <div className="mt-20">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <div key={feature.name} className="pt-6">
@@ -96,12 +90,10 @@ const Features = () => {
             </div>
           ))}
         </div>
+      </div> */}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-      
     </div>
   );
 };
