@@ -37,14 +37,37 @@ const options = [
 const Features = () => {
   const [selectedValue, setSelectedValue] = useState("");
   const [ans, setAns] = useState("");
-  const handleSelection = (e) => {
+  const handleSelection = async (e) => {
     const value = e.target.value;
     setSelectedValue(value);
     console.log("Selected value:", value);
+
+    try {
+      const response = await fetch("/api/flockModel", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt: value }),
+      });
+
+      const data = await response.json();
+      console.log(data.message);
+      if (response.status !== 200) {
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
+      }
+      setAns(data.message);
+      // setLoading(false);
+    } catch (error) {
+      console.error(error);
+    }
     main(value);
   };
 
-  const main = async (value) => {
+  const main = async () => {
     try {
       const response = await fetch("/api/flockModel", {
         method: "POST",
@@ -99,7 +122,13 @@ const Features = () => {
               value={`${selectedValue} is typing...`}
               className="mt-2 p-2 border rounded-md w-full"
             />
-
+            <input
+              type="text"
+              id="text-input2"
+              name="text-input2"
+              value={ans}
+              className="mt-2 p-2 border rounded-md w-full"
+            />
             <label htmlFor="text-area">Chat</label>
 
             <textarea
