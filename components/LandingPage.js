@@ -23,17 +23,17 @@ const data = [
   },
   {
     video:
-      "https://github.com/amoweolubusayo/1UP/assets/20168921/c9347fbc-9c3b-4514-9f2f-651a3773bbde",
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/c7c8a90f-a993-4c0b-997c-17852d5bbf4e",
     price: "Price 1",
   },
   {
     video:
-      "https://github.com/amoweolubusayo/1UP/assets/20168921/cc8570ba-3eec-4d3f-a552-1e8f37145cf5",
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/f28c73e5-324d-4b0b-8fcc-c999c1438100",
     price: "Price 2",
   },
   {
     video:
-      "https://github.com/amoweolubusayo/1UP/assets/20168921/b5f6e8ab-e37a-4b09-8e56-cb62d2c443ee",
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/d6a019fd-168f-4ed9-90b4-a67d28dc735b",
     price: "Price 3",
   },
 ];
