@@ -10,14 +10,6 @@ const data = [
     video: "video1.mp4",
     price: "Price 1",
   },
-  {
-    video: "video2.mp4",
-    price: "Price 2",
-  },
-  {
-    video: "video3.mp4",
-    price: "Price 3",
-  },{
     video: "video1.mp4",
     price: "Price 1",
   },
@@ -46,11 +38,6 @@ export default function LandingPage() {
             </div>
           </div>
         </div> */}
-        <div className="grid grid-cols-3 gap-4 p-4">
-          {data.map((item, index) => (
-            <Card key={index} video={item.video} price={item.price} />
-          ))}
-        </div>
     </>
   );
 }

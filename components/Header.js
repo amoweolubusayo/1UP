@@ -10,21 +10,21 @@ function classNames(...classes) {
 
 const Header = () => {
   const account = useAccount();
+  const [message, setMessage] = useState("");
   const [walletConnected, setWalletConnected] = useState(false);
   const [connectedAccount, setConnectedAccount] = useState("");
   const handleConnectWallet = async () => {
     try {
-      // Check if Adena wallet object exists
-      // if (!window.adena) {
-      //open adena.app in a new tab if the adena object is not found
-      window.open(
-        "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
-        "_blank"
-      );
+      // Check if Temple wallet object exists
+      // if (!window.temple) {
+        //open adena.app in a new tab if the adena object is not found
+        window.open(
+          "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
+          "_blank"
+        );
       //}
 
-      // Connect to Adena wallet
-      // await window.adena.AddEstablish("Adena");
+      //await window.temple.AddEstablish("Temple");
 
       // //Get Account details
       // const account = await window.adena.GetAccount();
