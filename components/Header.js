@@ -3,13 +3,36 @@ import Link from "next/link";
 import { ConnectButton, Theme } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import Image from "next/image";
+import { BeaconWallet } from "@taquito/beacon-wallet";
+import { NetworkType } from "@airgap/beacon-sdk";
+import { TezosToolkit } from "@taquito/taquito";
+
+const rpcUrl = "https://ghostnet.ecadinfra.com";
+const Tezos = new TezosToolkit(rpcUrl);
+const network = NetworkType.GHOSTNET;
+
+let wallet;
+let address;
+let balance;
+const connectWallet = async () => {
+  const newWallet = new BeaconWallet({
+    name: "Simple dApp tutorial",
+    preferredNetwork: network,
+  });
+  await newWallet.requestPermissions({
+    network: { type: network, rpcUrl },
+  });
+  address = await newWallet.getPKH();
+  getWalletBalance(address);
+  wallet = newWallet;
+};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 const Header = () => {
-  const account = useAccount();
+  const address = "";
   const [message, setMessage] = useState("");
   const [walletConnected, setWalletConnected] = useState(false);
   const [connectedAccount, setConnectedAccount] = useState("");
@@ -17,19 +40,29 @@ const Header = () => {
     try {
       // Check if Temple wallet object exists
       // if (!window.temple) {
-        //open adena.app in a new tab if the adena object is not found
-        window.open(
-          "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
-          "_blank"
-        );
-      //}
+      //   //open adena.app in a new tab if the adena object is not found
+      //   window.open(
+      //     "https://chrome.google.com/webstore/detail/temple-tezos-wallet/ookjlbkiijinhpmnjffcofjonbfbgaoc",
+      //     "_blank"
+      //   );
+      // }
+      const newWallet = new BeaconWallet({
+        name: "Simple dApp tutorial",
+        preferredNetwork: network,
+      });
+      await newWallet.requestPermissions({
+        network: { type: network, rpcUrl },
+      });
 
+      address = await newWallet.getPKH();
+      getWalletBalance(address);
+      //wallet = newWallet;
       //await window.temple.AddEstablish("Temple");
 
       // //Get Account details
       // const account = await window.adena.GetAccount();
       // console.log(account.address);
-      setConnectedAccount(account.address);
+      setConnectedAccount(address);
       // Set the wallet connection status
       setWalletConnected(true);
     } catch (error) {
