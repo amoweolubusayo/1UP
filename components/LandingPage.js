@@ -33,7 +33,7 @@ const data = [
   },
   {
     video:
-      "https://github.com/amoweolubusayo/1UP/assets/20168921/d6a019fd-168f-4ed9-90b4-a67d28dc735b",
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/8febd913-010d-49bb-ac3e-e0ca8d487451",
     price: "14 TXZ",
   },
 ];
