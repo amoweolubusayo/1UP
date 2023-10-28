@@ -7,27 +7,33 @@ import Card from "../components/Card";
 
 const data = [
   {
-    video: "video1.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/c9347fbc-9c3b-4514-9f2f-651a3773bbde",
     price: "Price 1",
   },
   {
-    video: "video2.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/cc8570ba-3eec-4d3f-a552-1e8f37145cf5",
     price: "Price 2",
   },
   {
-    video: "video3.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/b5f6e8ab-e37a-4b09-8e56-cb62d2c443ee",
     price: "Price 3",
   },
   {
-    video: "video1.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/c9347fbc-9c3b-4514-9f2f-651a3773bbde",
     price: "Price 1",
   },
   {
-    video: "video2.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/cc8570ba-3eec-4d3f-a552-1e8f37145cf5",
     price: "Price 2",
   },
   {
-    video: "video3.mp4",
+    video:
+      "https://github.com/amoweolubusayo/1UP/assets/20168921/b5f6e8ab-e37a-4b09-8e56-cb62d2c443ee",
     price: "Price 3",
   },
 ];
