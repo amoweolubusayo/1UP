@@ -25,10 +25,12 @@ Our smart contract was written with SmartPy.
 
 Contract can be found here https://better-call.dev/ghostnet/KT19sQSJsMzgsQCp4LCdd9C7T5wXse2A79Rn/operations
 
-![](https://hackmd.io/_uploads/SkJANoizp.png)
+![Run contract](https://hackmd.io/_uploads/rk-cE3of6.png)
+
+![Deployed contract](https://hackmd.io/_uploads/SkJANoizp.png)
 
 
-To integrate our smart contract on the frontend, we also used taquito. 
+To integrate our smart contract on the frontend, we also used taquito and beacon sdk. 
 
 
 **What we could have done if we had more time for Tezos**
