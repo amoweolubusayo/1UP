@@ -104,12 +104,12 @@ const Header = () => {
               Social Network
             </a>
           </Link>
-          <Link href="/all-courses">
+          <Link href="">
             <a className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm">
               Mixed
             </a>
           </Link>
-          <Link href="/create-course">
+          <Link href="">
             <a
               className="px-3 py-2 hover:bg-orange-400 rounded-md text-sm"
               target="_blank"
